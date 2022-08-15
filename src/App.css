@@ -16,18 +16,30 @@
 
 .mappic {
   border-radius: 50%;
-  border: 1px solid black;
+  border: 3px solid #0a2145;
   box-shadow: 2px;
+  margin-bottom: 30px;
 }
 
 .eventcard {
   border: 2px solid black;
- border-radius: 20px;
- margin-top: 5px;
- margin-bottom: 5px;
- display: flex;
- flex-direction: column;
-
+  border-radius: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
+.navbar {
+  margin-top: 15px;
+  margin-bottom: 30px;
+  justify-content: center;
+}
 
+.home.buttons {
+  justify-content: space-around;
+}
+
+.HomeChoice {
+  margin: 10px;
+}
