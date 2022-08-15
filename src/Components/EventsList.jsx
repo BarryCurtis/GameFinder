@@ -15,7 +15,7 @@ const EventsList = () => {
 
   return (
     <div>
-      <h2 className="eventslist.subtitle">See current events below</h2>;
+      <h2 className="eventslist.subtitle">See current events below</h2>
       <Map />
       <div className="eventslist filters">
         <Filters />
@@ -30,3 +30,18 @@ const EventsList = () => {
 };
 
 export default EventsList;
+
+// {
+//   event_id: 1,
+//   firebase_id: "1a",
+//   category: "football",
+//   date: "19/08/2022",
+//   time: "20:00",
+//   duration: 1,
+//   gender: "male",
+//   skills_level: 1,
+//   location: "M8 0AE",
+//   needed_players: 3,
+//   age_group: "50+",
+//   cost: 5,
+// },

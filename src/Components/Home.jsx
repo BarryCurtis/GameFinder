@@ -5,6 +5,7 @@ const Home = () => {
   return (
     <div className="Home">
       <Map />
+      <br />
       <Link to="/events">
         {" "}
         <button className="HomeChoice">Find A Game</button>
