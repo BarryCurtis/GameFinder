@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
 
 .App {
+  color: #0a2145;
   text-align: center;
   font-family: "Coustard", serif;
   display: flex;
@@ -28,3 +29,5 @@
  flex-direction: column;
 
 }
+
+
