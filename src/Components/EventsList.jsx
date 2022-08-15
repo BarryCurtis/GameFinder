@@ -8,7 +8,7 @@ const EventsList = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    getEvents().then((res) => setEvents(res.data.events));
+    getEvents().then((events) => setEvents(events));
   }, []);
 
   return (

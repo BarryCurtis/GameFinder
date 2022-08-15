@@ -16,18 +16,20 @@ const Home = () => {
     <div className="Home">
       <Map />
       <br />
-      <ThemeProvider theme={theme}>
-        <Link to="/events">
-          <Button variant="contained" color="primary" className="HomeChoice">
-            Find A Game
-          </Button>
-        </Link>
-        <Link to="/create">
-          <Button variant="contained" className="HomeChoice">
-            Create Event
-          </Button>
-        </Link>
-      </ThemeProvider>
+      <div className="home.buttons">
+        <ThemeProvider theme={theme}>
+          <Link to="/events">
+            <Button variant="contained" color="primary" className="HomeChoice">
+              Find A Game
+            </Button>
+          </Link>
+          <Link to="/create">
+            <Button variant="contained" className="HomeChoice">
+              Create Event
+            </Button>
+          </Link>
+        </ThemeProvider>
+      </div>
     </div>
   );
 };
