@@ -1,4 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Coustard&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
+
 .App {
   text-align: center;
+  font-family: "Coustard", serif;
+  display: flex;
+  flex-direction: column;
+}
 
+.Title {
+  font-family: "Bungee Shade", cursive;
+  font-size: 60px;
+}
+
+.mappic {
+  border-radius: 50%;
+  border: 1px solid black;
+  box-shadow: 2px;
 }
