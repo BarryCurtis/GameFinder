@@ -174,14 +174,3 @@ const UserDetails = () => {
 };
 
 export default UserDetails;
-
-{
-  /* username VARCHAR(50) NOT NULL,
-        name VARCHAR(100) NOT NULL,
-        age INT,
-        gender TEXT,
-        profile_icon VARCHAR,
-        skills_level TEXT,
-        rating INT,
-        event_id INT */
-}
