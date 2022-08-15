@@ -14,6 +14,7 @@ import RequireAuth from "./security/RequireAuth";
 import ForgotPassword from "./security/forgotPassword";
 import UpdateProfile from "./security/updateProfile";
 import { useAuth } from "./security/authContext";
+import UserDetails from "./Components/UserDetails";
 
 function App() {
   // const { currentUser } = useAuth();
@@ -32,6 +33,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/password-reset" element={<ForgotPassword />} />
             <Route path="/update-profile" element={<UpdateProfile />} />
+            <Route path="/user-details" element={<UserDetails />} />
           </Routes>
         </div>
       </AuthProvider>

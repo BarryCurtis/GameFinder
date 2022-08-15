@@ -1,14 +1,15 @@
-import {initializeApp} from "firebase/app";
-import {getAuth} from "firebase/auth";
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBaj-H8eH5dwDz0cCDdIzOBlYeiNzywxRc",
-  authDomain: "todo-app-168fb.firebaseapp.com",
-  projectId: "todo-app-168fb",
-  storageBucket: "todo-app-168fb.appspot.com",
-  messagingSenderId: "792346719343",
-  appId: "1:792346719343:web:e83f77d00fbf773db1099a",
+  apiKey: "AIzaSyCKyCj6LYiQNbEcpVjLfiAJ0AzD_uMuXT8",
+  authDomain: "findgame-359508.firebaseapp.com",
+  projectId: "findgame-359508",
+  storageBucket: "findgame-359508.appspot.com",
+  messagingSenderId: "193288965419",
+  appId: "1:193288965419:web:014cac6ea4e0e16f86496e",
+  measurementId: "G-WSPYSBXH0E",
 };
+
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
