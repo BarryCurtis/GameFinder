@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 
 const NavBar = () => {
   return (
