@@ -1,5 +1,6 @@
 import { useAuth } from "../security/authContext";
 import { useState } from "react";
+import { postUser } from "../Utility/api";
 
 const UserDetails = () => {
   const { currentUser } = useAuth();
@@ -11,8 +12,11 @@ const UserDetails = () => {
   const [skillsLevel, setSkillsLevel] = useState();
   const [rating, setRating] = useState(0);
   console.log(gender, name);
+
+  function handleSubmit() {}
   return (
-    <form action="">
+    <form onSubmit={handleSubmit}>
+      <h1>Beyar</h1>
       <label htmlFor="name">Name:</label>
       <input
         onChange={(e) => {
@@ -66,44 +70,17 @@ const UserDetails = () => {
         value="mixed"
       />
 
-      <p>Please select your age group:</p>
+      <label for="age"> Please input your age:</label>
       <input
         onChange={(e) => {
           setAge(e.target.value);
         }}
-        type="radio"
-        id="age1"
+        type="number"
+        id="age"
         name="age"
-        value="30"
+        value={age}
       />
-      <label for="age1">18 - 30</label>
-      <input
-        onChange={(e) => {
-          setAge(e.target.value);
-        }}
-        type="radio"
-        id="age2"
-        name="age"
-        value="60"
-      />
-      <label for="age2">31 - 50</label>
-      <input
-        onChange={(e) => {
-          setAge(e.target.value);
-        }}
-        type="radio"
-        id="age3"
-        name="age"
-        value="100"
-      />
-      <label for="age3">50+</label>
-      <input
-        onChange={(e) => {
-          setAge(e.target.value);
-        }}
-        type="submit"
-        value="Submit"
-      ></input>
+
       <br></br>
       <label htmlFor="profileIcon">Profile Icon Image URL:</label>
       <input
