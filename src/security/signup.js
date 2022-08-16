@@ -3,6 +3,7 @@ import "./signUpPage-style.css";
 import { useAuth } from "./authContext";
 import { Link, useNavigate } from "react-router-dom";
 import LogOut from "./LogOut";
+import Loading from "../Components/Loading";
 
 const SignUp = () => {
   const passwordconfirmRef = useRef();
@@ -33,7 +34,9 @@ const SignUp = () => {
     }
     setLoading(false);
   }
-
+ if (loading){
+  return <Loading />
+ }
   return (
     <div className="signup-form-container">
       <form className="signup-form" onSubmit={handleSubmit}>
