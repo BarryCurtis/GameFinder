@@ -4,6 +4,7 @@ import {createRef} from "../Utility/creatRef";
 const containerStyle = {
   width: '400px',
   height: '400px',
+  borderRadius: '20px'
 };
 
 const center = {
