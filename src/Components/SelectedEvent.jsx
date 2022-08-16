@@ -4,6 +4,7 @@ import { getEventsByID } from "../Utility/api";
 import { getComments } from "../Utility/api";
 import { useAuth } from "../security/authContext";
 import { postComment } from "../Utility/api";
+import { getUserByID } from "../Utility/api";
 
 const SelectedEvent = () => {
   const { currentUser } = useAuth();
@@ -11,10 +12,14 @@ const SelectedEvent = () => {
   const [singleEvent, setSingleEvent] = useState([]);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const [eventOrganiserFirebase_id, seteventOrganiserFirebase_id] =
+    useState("");
+  const [eventOrganiser, setEventOrangiser] = useState({});
 
   useEffect(() => {
     getEventsByID(event_id).then((event) => {
       setSingleEvent(event);
+      seteventOrganiserFirebase_id(event.firebase_id).then(() => {});
     });
   }, [event_id]);
 
@@ -23,6 +28,12 @@ const SelectedEvent = () => {
       setComments(data);
     });
   }, [event_id]);
+
+  useEffect(() => {
+    getUserByID(eventOrganiserFirebase_id).then((data) => {
+      setEventOrangiser(data);
+    });
+  }, [event_id, eventOrganiser, eventOrganiserFirebase_id]);
 
   const handleSubmit = (e) => {
     const commentToSend = {
@@ -37,7 +48,17 @@ const SelectedEvent = () => {
   return (
     <div>
       <div className="selectedevent">
+        <img
+          className="selectedEvent_eventOrganiser"
+          src={eventOrganiser.profile_icon}
+          alt={eventOrganiser.profile_icon}
+        />
+        <p className="eventOrganiser_user">
+          Organiser: {eventOrganiser.username}
+        </p>
+        <p className="eventOrganiser_rating">Rated: {eventOrganiser.rating}</p>
         <p className="eventcard.row event_id">Sport: {singleEvent.category}</p>
+
         <p className="eventcard.row event_id">🗓️ {singleEvent.date}</p>
         <p className="eventcard.row event_id">🕝 {singleEvent.time}</p>
         <p className="eventcard.row event_id"> ⏱️ {singleEvent.duration}</p>
