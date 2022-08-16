@@ -9,7 +9,7 @@ export function createRef(events) {
 
   const promisies = newEvents.map((newEvent) => {
     return axios.get(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${newEvent.location}&key=AIzaSyB_krhi9Y0ZhqLYMN5DfVMVD06UCjnJ78A`
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${newEvent.location}&key=${process.env.REACT_APP_MAPS_KEY}`
     );
     // console.log(res.data.results[0].geometry.location)
   });
