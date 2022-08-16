@@ -19,7 +19,7 @@ function Map({events}) {
  
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyB_krhi9Y0ZhqLYMN5DfVMVD06UCjnJ78A"
+    googleMapsApiKey: process.env.REACT_APP_MAPS_KEY
   })
   const [map, setMap] = useState(null)
   function errorcallback(error) {
@@ -32,7 +32,7 @@ function Map({events}) {
     setLocation({lat:latitude, lng:longitude})
   }
   useEffect(()=>{
-    navigator.geolocation.getCurrentPosition(sucessfulLockup, errorcallback);
+    // navigator.geolocation.getCurrentPosition(sucessfulLockup, errorcallback);
     createRef(events).then((d)=>{
       setMarkerlocation(d)
     })
@@ -57,8 +57,9 @@ function Map({events}) {
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
+        
         {events && markerLoactions.map(event=>{
-          return <Marker title = {event.category} position={{lat:event.lat, lng:event.lng}} key={Math.random()}/>
+          return <Marker label = {event.category} position={{lat:event.lat, lng:event.lng}} key={Math.random()}/>
         })}
         {/* <Marker title='old trafford' position={{lat:53.4631, lng:-2.2913}}/> */}
         <></>
