@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import "./login-form.css";
 import { useAuth } from "./authContext";
 import { Link, useNavigate } from "react-router-dom";
-
+import Loading from "../Components/Loading";
 const LogIn = () => {
   const passwordRef = useRef();
   const emailRef = useRef();
@@ -28,7 +28,9 @@ const LogIn = () => {
     }
     setLoading(false);
   }
-
+  if(loading){
+    return <Loading />
+  }
   return (
     <div className="login-form-container">
       <form className="login-form" onSubmit={handleSubmit}>

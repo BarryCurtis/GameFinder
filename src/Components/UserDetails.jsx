@@ -2,6 +2,7 @@ import { useAuth } from "../security/authContext";
 import { useState } from "react";
 import { postUser } from "../Utility/api";
 import { Link, useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const UserDetails = () => {
   const { currentUser } = useAuth();
@@ -11,11 +12,12 @@ const UserDetails = () => {
   const [age, setAge] = useState();
   const [profileIcon, setProfileIcon] = useState();
   const [skillsLevel, setSkillsLevel] = useState("1");
-  const [rating, setRating] = useState(0);
+  const [isLoading, setIsloading] = useState(false)
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
+    setIsloading(true)
     const postBody = {
       firebase_id: currentUser.uid,
       name: name,
@@ -24,18 +26,22 @@ const UserDetails = () => {
       gender: gender,
       profile_icon: profileIcon,
       skills_level: skillsLevel,
-      rating: 3,
+      rating: 1,
       event_id: 90,
     };
     postUser(postBody)
       .then(() => {
+        setIsloading(false)
         navigate("/");
       })
       .catch((err) => {
+        setIsloading(false)
         setError(err);
       });
   }
-
+  if(isLoading){
+    return <Loading />
+  }
   return (
     <div className="userdetails">
       {error ? (
