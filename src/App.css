@@ -304,3 +304,10 @@ create h2 {
   box-sizing: border-box;
   display: block;
 }
+
+/* selected event*/
+
+.selectedEvent_eventOrganiser {
+  height: 30px;
+  border-radius: 50%;
+}

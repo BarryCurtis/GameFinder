@@ -17,7 +17,7 @@ export function getEventsByID(event_id) {
 }
 
 export function getUserByID(firebase_id) {
-  return myApi.get(`events/${firebase_id}`).then(({ data }) => {
+  return myApi.get(`users/${firebase_id}`).then(({ data }) => {
     return data.user;
   });
 }
