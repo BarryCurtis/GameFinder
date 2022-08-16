@@ -11,7 +11,6 @@ const SelectedEvent = () => {
   const [singleEvent, setSingleEvent] = useState([]);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
-  const [commentAdded, setCommentAdded] = useState(false);
 
   useEffect(() => {
     getEventsByID(event_id).then((event) => {
@@ -26,7 +25,6 @@ const SelectedEvent = () => {
   }, [event_id]);
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
     const commentToSend = {
       firebase_id: `${currentUser.uid}`,
       event_id: Number(event_id),
@@ -34,9 +32,6 @@ const SelectedEvent = () => {
       comment_time: new Date(Date.now()).toISOString(),
     };
     postComment(event_id, commentToSend);
-
-    setCommentAdded(true);
-    // window.location.reload();
   };
 
   return (
