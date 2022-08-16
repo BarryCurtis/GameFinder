@@ -57,41 +57,11 @@ const UserDetails = () => {
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
-        {/* <label for="gender1">Male</label>
-        <input
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-          type="radio"
-          id="gender"
-          name="gender"
-          value="male"
-        />
-        <label for="gender2">Female</label>
-        <input
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-          type="radio"
-          id="gender"
-          name="gender"
-          value="female"
-        />
-        <label for="gender3">Other</label>
-        <input
-          onChange={(e) => {
-            setGender(e.target.value);
-          }}
-          type="radio"
-          id="gender"
-          name="gender"
-          value="mixed"
-        /> */}
+
         <br></br>
         <label>
-          {" "}
           Please select your skills level, 1 Star being Fun/Beginner, 5 Star
-          being Serious/Ex Pro:{" "}
+          being Serious/Ex Pro:
         </label>
 
         <select
@@ -114,58 +84,6 @@ const UserDetails = () => {
           value={profileIcon}
           required
         />
-
-        {/* <label for="skill1">1</label>
-
-        <input
-          onChange={(e) => {
-            setSkillsLevel(e.target.value);
-          }}
-          type="radio"
-          id="skill1"
-          name="skill"
-          value="1"
-        />
-        <label for="skill2">2</label>
-        <input
-          onChange={(e) => {
-            setSkillsLevel(e.target.value);
-          }}
-          type="radio"
-          id="skill2"
-          name="skill"
-          value="2"
-        />
-        <label for="skill3">3</label>
-        <input
-          onChange={(e) => {
-            setSkillsLevel(e.target.value);
-          }}
-          type="radio"
-          id="skill3"
-          name="skill"
-          value="3"
-        />
-        <label for="skill4">4</label>
-        <input
-          onChange={(e) => {
-            setSkillsLevel(e.target.value);
-          }}
-          type="radio"
-          id="skill4"
-          name="skill"
-          value="4"
-        />
-        <label for="skill5">5</label>
-        <input
-          onChange={(e) => {
-            setSkillsLevel(e.target.value);
-          }}
-          type="radio"
-          id="skill5"
-          name="skill"
-          value="5"
-        /> */}
         <button>Add User/Submit</button>
       </form>
     </div>

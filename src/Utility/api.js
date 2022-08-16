@@ -32,8 +32,8 @@ export function postComment(event_id, comment) {
   return myApi.post(`/events/${event_id}/comments`, comment);
 }
 
-export function postEvent(event) {
-  return myApi.post("/events", event);
+export function postEvent(eventToSend) {
+  return myApi.post("/events", eventToSend);
 }
 
 export function postUser(user) {
