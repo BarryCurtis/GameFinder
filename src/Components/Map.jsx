@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import { Circle, GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import {createRef} from "../Utility/creatRef";
 const containerStyle = {
   width: '400px',
@@ -32,7 +32,7 @@ function Map({events}) {
     setLocation({lat:latitude, lng:longitude})
   }
   useEffect(()=>{
-    // navigator.geolocation.getCurrentPosition(sucessfulLockup, errorcallback);
+    navigator.geolocation.getCurrentPosition(sucessfulLockup, errorcallback);
     createRef(events).then((d)=>{
       setMarkerlocation(d)
     })
@@ -62,7 +62,7 @@ function Map({events}) {
           return <Marker label = {event.category} position={{lat:event.lat, lng:event.lng}} key={Math.random()}/>
         })}
         {/* <Marker title='old trafford' position={{lat:53.4631, lng:-2.2913}}/> */}
-        <></>
+        {/* <Circle center={location} radius={3000} /> */}
       </GoogleMap>
   ) : <></>
 }
