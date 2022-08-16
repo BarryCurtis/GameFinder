@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useAuth } from "../security/authContext";
+import { postEvent } from "../Utility/api";
 
 const Create = () => {
   const [eventName, setEventName] = useState();
@@ -12,8 +14,35 @@ const Create = () => {
   const [age, setAge] = useState();
   const [skillsLevel, setSkillsLevel] = useState();
   const [players, setPlayers] = useState();
+  const [cost, setCost] = useState();
+  const [sentEvent, setSentEvent] = useState(false);
 
-  function handleSubmit() {}
+  const { currentUser } = useAuth();
+  // console.log(currentUser.uid);
+  // console.log(typeof cost);
+
+  // currentUser.UID = firebase_id of user
+  // make a dynamc value for firebase id
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const eventToSend = {
+      firebase_id: `${currentUser.uid}`,
+      category: category,
+      date: date,
+      time: time,
+      duration: duration,
+      gender: gender,
+      skills_level: Number(skillsLevel),
+      location: location,
+      needed_players: Number(players),
+      age_group: age,
+      cost: Number(cost),
+    };
+    console.log(eventToSend);
+    postEvent(eventToSend);
+    setSentEvent(true);
+  }
 
   return (
     <div className="create">
@@ -40,7 +69,12 @@ const Create = () => {
           required
         ></textarea>
         <label>Category: </label>
-        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+        <select
+          value={category}
+          required
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="">Select Option</option>
           <option value="football">Football</option>
           <option value="netball">Netball</option>
           <option value="squash">Squash</option>
@@ -89,14 +123,27 @@ const Create = () => {
           value={duration}
           required
         />
+        <label>Cost: </label>
+        <select value={cost} required onChange={(e) => setCost(e.target.value)}>
+          <option value="">Select Option</option>
+          <option value="0">Free</option>
+          <option value="5">£5</option>
+          <option value="10">£10</option>
+        </select>
         <label>Gender: </label>
-        <select value={gender} onChange={(e) => setGender(e.target.value)}>
+        <select
+          value={gender}
+          required
+          onChange={(e) => setGender(e.target.value)}
+        >
+          <option value="">Select Option</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
           <option value="other">Other</option>
         </select>
         <label>Age Group: </label>
-        <select value={age} onChange={(e) => setAge(e.target.value)}>
+        <select value={age} required onChange={(e) => setAge(e.target.value)}>
+          <option value="">Select Option</option>
           <option value="18-30">18-30</option>
           <option value="30-50">30-50</option>
           <option value="50+">50+</option>
@@ -104,8 +151,10 @@ const Create = () => {
         <label>Skill Level: </label>
         <select
           value={skillsLevel}
+          required
           onChange={(e) => setSkillsLevel(e.target.value)}
         >
+          <option value="">Select Option</option>
           <option value="1">1 Star</option>
           <option value="2">2 Star</option>
           <option value="3">3 Star</option>
@@ -114,7 +163,12 @@ const Create = () => {
         </select>
 
         <label>Players Required: </label>
-        <select value={players} onChange={(e) => setPlayers(e.target.value)}>
+        <select
+          value={players}
+          required
+          onChange={(e) => setPlayers(e.target.value)}
+        >
+          <option value="">Select Option</option>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -137,6 +191,8 @@ const Create = () => {
           <option value="19">19</option>
           <option value="20">20</option>
         </select>
+        {sentEvent === true ? <h4>Event Posted, See Events Page</h4> : null}
+
         <button>Add Event</button>
       </form>
     </div>
