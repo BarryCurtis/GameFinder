@@ -17,7 +17,11 @@
   color:black
   
 }
-
+.map-wrapper{
+  width: fit-content;
+  height: fit-content;
+  margin: 10 auto;
+}
 .mappic {
   border-radius: 50%;
   border: 3px solid #0a2145;
