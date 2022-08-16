@@ -36,10 +36,11 @@ function Map({events}) {
       setMarkerlocation(d)
     })
   },[events])
-  
+  const zoom = 12
   const onLoad = React.useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds(location);
-    map.fitBounds(bounds);
+    // map.fitBounds(bounds);
+    map.setZoom(zoom)
     setMap(map)
   }, [location])
 
@@ -58,7 +59,7 @@ function Map({events}) {
         {events && markerLoactions.map(event=>{
           return <Marker title = {event.category} position={{lat:event.lat, lng:event.lng}} key={Math.random()}/>
         })}
-        <Marker title='old trafford' position={{lat:53.4631, lng:-2.2913}}/>
+        {/* <Marker title='old trafford' position={{lat:53.4631, lng:-2.2913}}/> */}
         <></>
       </GoogleMap>
   ) : <></>
