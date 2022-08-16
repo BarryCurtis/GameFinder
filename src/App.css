@@ -18,9 +18,9 @@
   
 }
 .map-wrapper{
-  width: fit-content;
-  height: fit-content;
-  margin: 10 auto;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
 }
 .mappic {
   border-radius: 50%;

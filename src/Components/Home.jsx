@@ -9,7 +9,7 @@ const Home = () => {
   }, []);
   return (
     <div className="home">
-      <Map events={events}/>
+      <div className="map-wrapper"><Map events={events}/></div>
       <br />
       <div className="home.buttons">
         <Link to="/events">
