@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 const EventCard = ({ event }) => {
   return (
     <div className="eventcard">
@@ -19,18 +18,3 @@ const EventCard = ({ event }) => {
 };
 
 export default EventCard;
-
-// {
-
-//   firebase_id: "1a",
-//   category: "football",
-//   date: "19/08/2022",
-//   time: "20:00",
-//   duration: 1,
-//   gender: "male",
-//   skills_level: 1,
-//   location: "M8 0AE",
-//   needed_players: 3,
-//   age_group: "50+",
-//   cost: 5,
-// },
