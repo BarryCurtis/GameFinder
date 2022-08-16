@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Coustard&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+
 
 .App {
   color: #0a2145;
@@ -12,6 +14,8 @@
 .Title {
   font-family: "Bungee Shade", cursive;
   font-size: 60px;
+  color:black
+  
 }
 
 .mappic {
@@ -23,23 +27,261 @@
 
 .eventcard {
   border: 2px solid black;
-  border-radius: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
 }
 
-.navbar {
-  margin-top: 15px;
+/* links */
+
+
+ /* buttons */
+
+.logout button {
+  background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.create button {
+  background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+
+}
+
+.userdetails button {
+  background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.eventcard button {
+  background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+
+}
+
+.selectedevent button{
+
+background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.home button {
+  background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  margin-inline-end: 8px;
+  margin-inline-start: 8px;
+  cursor: pointer;
+}
+
+.login-form-container button {
+  background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.signup-form-container button {
+  background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* create event */
+
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.create label {
+  text-align: left;
+  display: block;
+}
+
+create h2 {
+  font-size: 20px;
+  color: #0a2145;
   margin-bottom: 30px;
-  justify-content: center;
 }
 
-.home.buttons {
+.create input, .create textarea, .create select, .filters select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* events list */
+
+.eventslist {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* navbar */
+
+.navbar {
+  display: flex;
+  flex-direction: row;
   justify-content: space-around;
+  margin: 0 auto;
+  text-align: center;
+  }
+
+  /* account */
+  
+ .account {
+
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+
+  }
+
+  .account label {
+    text-align: center;
+    display: block;
+  }
+
+.account {
+      font-size: 20px;
+      color: #0a2145;
+      margin-bottom: 30px;
+    }
+
+.account input, .account textarea {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  /* login form */
+
+.login-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+.login-form-container label {
+    text-align: center;
+    display: block;
+  }
+
+.login-form-container {
+      font-size: 20px;
+      color: #0a2145;
+      margin-bottom: 30px;
+    }
+
+.login-form-container input, .login-form-container textarea {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  /* log out */
+
+  .logout {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* sign up form */
+
+.signup-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+.signup-form-container label {
+    text-align: center;
+    display: block;
+  }
+
+.signup-form-container {
+      font-size: 20px;
+      color: #0a2145;
+      margin-bottom: 30px;
+    }
+
+.signup-form-container input, .signup-form-container textarea {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    display: block;
+  }
+  
+/* user details */
+
+.userdetails {
+
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.HomeChoice {
-  margin: 10px;
+.userdetails label {
+
+    text-align: left;
+    display: block;
+}
+
+.userdetails h2 {
+  font-size: 20px;
+  color: #0a2145;
+  margin-bottom: 30px;
+}
+
+.userdetails input, .userdetails textarea, .userdetails select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
 }

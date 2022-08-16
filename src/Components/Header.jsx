@@ -1,7 +1,7 @@
 const Header = () => {
   return (
     <header>
-      <h1 className="Title"> Find My Game</h1>
+      <h1 className="Title"> Game Finder</h1>
     </header>
   );
 };

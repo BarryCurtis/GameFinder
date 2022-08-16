@@ -41,7 +41,6 @@ const UpdateProfile = () => {
     <div className="signup-form-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <p style={{ color: "red" }}>{error}</p>
-        <p>{currentUser && currentUser.email}</p>
 
         <label htmlFor="email">
           <b>Update Email</b>

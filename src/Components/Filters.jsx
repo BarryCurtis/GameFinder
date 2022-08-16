@@ -1,7 +1,7 @@
 const Filters = () => {
   return (
     <section className="filters">
-      <h4 className="sort_by.label">Sort events</h4>
+      <h4 className="sort_by.label">Filter Events</h4>
       <select
         name="category"
         id=""

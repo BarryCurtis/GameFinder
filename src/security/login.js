@@ -64,7 +64,7 @@ const LogIn = () => {
         Forgot Password
       </Link>
       <div className="signup-bar">
-        <p>Dont have account.. </p>
+        <p>New User.. </p>
         <Link to="/signup">Sign Up</Link>
       </div>
     </div>

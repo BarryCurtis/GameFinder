@@ -6,16 +6,19 @@ const Account = () => {
   const { currentUser } = useAuth();
   console.log(currentUser);
   return (
-    <>
-      {currentUser ? (
-        <>
-          <p>Welcome {currentUser && currentUser.email}</p> <UpdateProfile />{" "}
-          <LogOut />{" "}
-        </>
-      ) : (
-        <LogIn />
-      )}
-    </>
+    <div className="account">
+      <>
+        {currentUser ? (
+          <>
+            <h2>User Account {currentUser && currentUser.email}</h2>
+            <UpdateProfile />
+            <LogOut />
+          </>
+        ) : (
+          <LogIn />
+        )}
+      </>
+    </div>
   );
 };
 

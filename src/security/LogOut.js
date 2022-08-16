@@ -6,6 +6,7 @@ const LogOut = () => {
 
   return (
     <div
+      className="logout"
       style={{
         display: "flex",
         alignItems: "center",
@@ -13,13 +14,10 @@ const LogOut = () => {
         width: "fit-content",
       }}
     >
-      <button
-        onClick={signout}
-        style={{ margin: "0px", backgroundColor: "gray" }}
-      >
+      <button onClick={signout}>
         <MdLogout />
       </button>
-      <p style={{ color: "#551AA8" }}>Log Out</p>
+      <p style={{ color: "#0a2145" }}>Log Out</p>
     </div>
   );
 };

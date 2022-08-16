@@ -23,6 +23,7 @@ const SelectedEvent = () => {
       <p className="eventcard.row event_id">{singleEvent.gender}</p>
       <p className="eventcard.row event_id">🎂 {singleEvent.age_group}</p>
       <p className="eventcard.row event_id"> 📈 {singleEvent.skills_level}</p>
+      <button>Book Event</button>
     </div>
   );
 };

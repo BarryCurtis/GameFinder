@@ -12,8 +12,8 @@ const EventsList = () => {
   }, []);
 
   return (
-    <div>
-      <h2 className="eventslist.subtitle">See current events below</h2>
+    <div classname="eventslist">
+      <h2 className="eventslist.subtitle">See Latest Bookable Events Below</h2>
       <Map />
       <div className="eventslist filters">
         <Filters />

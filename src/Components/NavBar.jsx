@@ -1,21 +1,49 @@
 import { Link } from "react-router-dom";
-import { Breadcrumbs } from "@mui/material";
 
 const NavBar = () => {
   return (
-    <div>
+    <div className="links">
       <nav className="navbar">
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" color="inherit" to="/">
-            Home
-          </Link>
-          <Link underline="hover" color="inherit" to="/events">
-            Events
-          </Link>
-          <Link underline="hover" color="inherit" to="/account">
-            Account
-          </Link>
-        </Breadcrumbs>
+        {/* <a
+          href="/"
+          style={{
+            color: "white",
+            backgroundColor: "#0a2145",
+            borderRadius: "8px",
+          }}
+        >
+          Home
+        </a>
+        <a
+          href="/events"
+          style={{
+            color: "white",
+            backgroundColor: "#0a2145",
+            borderRadius: "8px",
+          }}
+        >
+          Events
+        </a>
+        <a
+          href="/account"
+          style={{
+            color: "white",
+            backgroundColor: "#0a2145",
+            borderRadius: "8px",
+          }}
+        >
+          Account
+        </a> */}
+
+        <Link underline="hover" color="inherit" to="/">
+          Home
+        </Link>
+        <Link underline="hover" color="inherit" to="/events">
+          Events
+        </Link>
+        <Link underline="hover" color="inherit" to="/account">
+          Account
+        </Link>
       </nav>
     </div>
   );
