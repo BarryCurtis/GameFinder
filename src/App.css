@@ -46,6 +46,7 @@
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: "Coustard";
 }
 
 .create button {
@@ -55,6 +56,7 @@
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: "Coustard";
 
 }
 
@@ -65,6 +67,7 @@
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: "Coustard";
 }
 
 .eventcard button {
@@ -74,6 +77,7 @@
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: "Coustard";
 
 }
 
@@ -85,6 +89,7 @@ background: #0a2145;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: "Coustard";
 }
 
 .home button {
@@ -96,6 +101,7 @@ background: #0a2145;
   margin-inline-end: 8px;
   margin-inline-start: 8px;
   cursor: pointer;
+  font-family: "Coustard";
 }
 
 .login-form-container button {
@@ -105,6 +111,7 @@ background: #0a2145;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: "Coustard";
 }
 
 .signup-form-container button {
@@ -114,6 +121,7 @@ background: #0a2145;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  font-family: "Coustard";
 }
 
 /* create event */
@@ -154,13 +162,13 @@ create h2 {
 
 /* navbar */
 
-.navbar {
+/* .navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   margin: 0 auto;
   text-align: center;
-  }
+  } */
 
   /* account */
   

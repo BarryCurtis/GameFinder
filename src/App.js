@@ -17,6 +17,7 @@ import { useAuth } from "./security/authContext";
 import UserDetails from "./Components/UserDetails";
 import SelectedEvent from "./Components/SelectedEvent";
 import CreateEvent from "./Components/CreateEvent";
+import "./nav.css";
 
 function App() {
   // const { currentUser } = useAuth();
@@ -25,20 +26,22 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <div className="App">
-          <Header />
           <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/events" element={<EventsList />} />
-            <Route path="/events/:event_id" element={<SelectedEvent />} />
-            <Route path="/create" element={<CreateEvent />} />
-            <Route path="/account" element={<Account />} />
-            <Route path="/login" element={<LogIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/password-reset" element={<ForgotPassword />} />
-            <Route path="/update-profile" element={<UpdateProfile />} />
-            <Route path="/user-details" element={<UserDetails />} />
-          </Routes>
+          <Header />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/events" element={<EventsList />} />
+              <Route path="/events/:event_id" element={<SelectedEvent />} />
+              <Route path="/create" element={<CreateEvent />} />
+              <Route path="/account" element={<Account />} />
+              <Route path="/login" element={<LogIn />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/password-reset" element={<ForgotPassword />} />
+              <Route path="/update-profile" element={<UpdateProfile />} />
+              <Route path="/user-details" element={<UserDetails />} />
+            </Routes>
+          </div>
         </div>
       </AuthProvider>
     </BrowserRouter>
