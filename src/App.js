@@ -17,7 +17,6 @@ import { useAuth } from "./security/authContext";
 import UserDetails from "./Components/UserDetails";
 import SelectedEvent from "./Components/SelectedEvent";
 import CreateEvent from "./Components/CreateEvent";
-import Create from "./Components/Create";
 
 function App() {
   // const { currentUser } = useAuth();
@@ -32,7 +31,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/events" element={<EventsList />} />
             <Route path="/events/:event_id" element={<SelectedEvent />} />
-            <Route path="/create" element={<Create />} />
+            <Route path="/create" element={<CreateEvent />} />
             <Route path="/account" element={<Account />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/signup" element={<SignUp />} />
