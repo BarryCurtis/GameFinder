@@ -2,6 +2,7 @@ import LogIn from "../security/login";
 import UpdateProfile from "../security/updateProfile";
 import { useAuth } from "../security/authContext";
 import LogOut from "../security/LogOut";
+import { Link } from "react-router-dom";
 const Account = () => {
   const { currentUser } = useAuth();
   return (
@@ -10,6 +11,12 @@ const Account = () => {
         {currentUser ? (
           <>
             <h2>User Account {currentUser && currentUser.email}</h2>
+            <Link to={`/user/Booked-events/${currentUser.uid}`}>
+              <button>Booked Event</button>
+            </Link>
+            <Link to={`/user/Created-events/${currentUser.uid}`}>
+              <button>Your Events</button>
+            </Link>
             <UpdateProfile />
             <LogOut />
           </>

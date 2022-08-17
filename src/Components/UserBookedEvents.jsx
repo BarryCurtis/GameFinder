@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUserBookedEvents } from "../Utility/api";
-import { useAuth } from "./authContext";
+import { useAuth } from "../security/authContext";
 import EventCard from "./EventCard";
 const UserBookedEvents = () => {
   const [userevents, setUserEvents] = useState([]);
@@ -15,7 +15,7 @@ const UserBookedEvents = () => {
 
   return (
     <>
-      {userevents.map((event) => {
+      {userevents && userevents.map((event) => {
         return <EventCard event={event} />;
       })}
     </>

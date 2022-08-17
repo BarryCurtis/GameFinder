@@ -18,6 +18,8 @@ import UserDetails from "./Components/UserDetails";
 import SelectedEvent from "./Components/SelectedEvent";
 import CreateEvent from "./Components/CreateEvent";
 import "./nav.css";
+import UserBookedEvents from "./Components/UserBookedEvents";
+import UserCreatedEvents from "./Components/UserCreatedEvents";
 
 function App() {
   // const { currentUser } = useAuth();
@@ -40,6 +42,8 @@ function App() {
               <Route path="/password-reset" element={<ForgotPassword />} />
               <Route path="/update-profile" element={<UpdateProfile />} />
               <Route path="/user-details" element={<UserDetails />} />
+              <Route path="/user/Booked-events/:firebase_id" element={<UserBookedEvents/>}/>
+              <Route path="/user/Created-events/:firebase_id" element={<UserCreatedEvents/>}/>
             </Routes>
           </div>
         </div>

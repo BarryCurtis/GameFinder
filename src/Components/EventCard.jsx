@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { cardImages } from "../Images/card.images";
 
 const EventCard = ({ event }) => {
-  console.log(cardImages);
   return (
     <div className="eventcard">
       <img

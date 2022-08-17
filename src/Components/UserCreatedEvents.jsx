@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getEvents } from "../Utility/api";
-import { useAuth } from "./authContext";
+import { useAuth } from "../security/authContext";
 import EventCard from "./EventCard";
 const UserCreatedEvents = () => {
   const [userevents, setUserEvents] = useState([]);
@@ -13,7 +13,7 @@ const UserCreatedEvents = () => {
     }
   }, [currentUser.uid]);
   const filteredEvents = userevents.filter((event) => {
-    return (event.firebase_id = currentUser.uid);
+    return (event.firebase_id === currentUser.uid);
   });
   return (
     <>
