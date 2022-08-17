@@ -13,7 +13,9 @@
 .Title {
   font-family: "Bungee Shade", cursive;
   font-size: 60px;
-  color: black;
+  color: rgb(36, 35, 35);
+  
+ 
 }
 .map-wrapper{
   max-width: 400px;
@@ -27,18 +29,19 @@
   margin-bottom: 30px;
 }
 
-.eventcard {
-  border: 2px solid black;
-  border-radius: 50px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* links */
 
 /* buttons */
+
+.selectedEvent_addComment button {
+  background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Coustard";
+  box-shadow: 0 2px 10px #0a2145;
+}
 
 .logout button {
   background: #0a2145;
@@ -48,6 +51,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
+  box-shadow: 0 2px 10px #0a2145;
 }
 
 .create button {
@@ -58,7 +62,12 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
+  box-shadow: 0 2px 10px #0a2145;
 }
+
+
+}
+
 
 .selectedEvent_addComments button {
   background: #0a2145;
@@ -68,6 +77,8 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
 }
 
 .userdetails button {
@@ -78,6 +89,8 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
 }
 
 .eventcard button {
@@ -87,8 +100,9 @@
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
-
   font-family: "Coustard";
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
 }
 
 .selectedevent button {
@@ -99,6 +113,8 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
 }
 
 .home button {
@@ -111,6 +127,8 @@
   margin-inline-start: 8px;
   cursor: pointer;
   font-family: "Coustard";
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
 }
 
 .login-form-container button {
@@ -121,6 +139,8 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
 }
 
 .signup-form-container button {
@@ -131,8 +151,33 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
+  box-shadow: 0 2px 10px #0a2145;
+  
 }
 
+/* event card */
+.eventcard {
+
+  box-sizing: border-box;
+  border: 2px solid #0a2145;;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
+}
+
+.eventcard-text{
+  margin: 8px;
+  
+}
+
+.eventimage {
+
+}
 /* create event */
 
 .create {
@@ -154,6 +199,7 @@ create h2 {
 
 .create input,
 .create textarea,
+.selectedEvent_addComment textarea,
 .create select,
 .filters select {
   width: 100%;
@@ -172,17 +218,6 @@ create h2 {
   text-align: center;
 }
 
-/* navbar */
-
-/* .navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 0 auto;
-  text-align: center;
-
-  } 
-
 
 /* account */
 
@@ -190,6 +225,7 @@ create h2 {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
+
 }
 
 .account label {
@@ -277,6 +313,18 @@ create h2 {
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;
+}
+
+/* user image */
+
+.userimage {
+  height: 150px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid #0a2145;
+  margin-bottom: 5px;
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
 }
 
 /* user details */
