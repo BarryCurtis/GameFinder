@@ -28,11 +28,17 @@ const LogIn = () => {
     }
     setLoading(false);
   }
-  if(loading){
-    return <Loading />
+  if (loading) {
+    return <Loading />;
   }
   return (
     <div className="login-form-container">
+      <h3 className="accountheader">Please Login or Sign Up</h3>
+      <img
+        className="sportpic"
+        src="https://cdn.images.express.co.uk/img/dynamic/4/750x445/1280284.jpg"
+        alt="sportimage"
+      ></img>
       <form className="login-form" onSubmit={handleSubmit}>
         <p style={{ color: "red" }}>{error}</p>
         <p>{currentUser && currentUser.email}</p>
@@ -65,10 +71,10 @@ const LogIn = () => {
       <Link to="/password-reset" className="forgot-link">
         Forgot Password
       </Link>
-      <div className="signup-bar">
-        <p>New User.. </p>
-        <Link to="/signup">Sign Up</Link>
-      </div>
+      <br></br>
+      <Link to="/signup" className="signupbar">
+        Sign Up
+      </Link>
     </div>
   );
 };

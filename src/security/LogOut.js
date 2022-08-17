@@ -14,10 +14,12 @@ const LogOut = () => {
         width: "fit-content",
       }}
     >
-      <button onClick={signout}>
+      <button className="logoutbutton" onClick={signout}>
         <MdLogout />
       </button>
-      <p style={{ color: "#0a2145" }}>Log Out</p>
+      <p className="logouttext" style={{ color: "#0a2145" }}>
+        Log Out
+      </p>
     </div>
   );
 };
