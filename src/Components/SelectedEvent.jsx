@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import {
   getComments,
   patchEvent,
@@ -9,6 +9,7 @@ import {
   getUserByID
 } from "../Utility/api";
 import { useAuth } from "../security/authContext";
+import Loading from "./Loading";
 
 const SelectedEvent = () => {
   const { currentUser } = useAuth();
@@ -16,9 +17,11 @@ const SelectedEvent = () => {
   const [singleEvent, setSingleEvent] = useState([]);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const navigate = useNavigate();
   const [eventOrganiserFirebase_id, seteventOrganiserFirebase_id] =
     useState("");
   const [eventOrganiser, setEventOrangiser] = useState({});
+
 
   useEffect(() => {
     getEventsByID(event_id).then((event) => {
@@ -26,6 +29,8 @@ const SelectedEvent = () => {
       seteventOrganiserFirebase_id(event.firebase_id).then(() => {});
     });
   }, [event_id]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getComments(event_id).then((data) => {
@@ -49,10 +54,27 @@ const SelectedEvent = () => {
     postComment(event_id, commentToSend);
   };
   const handleBookEvent = () => {
+    setIsLoading(true);
+    if (!currentUser) {
+      navigate("/signup");
+    }
     const firebase_id = currentUser.uid;
-    bookEvent(firebase_id, event_id);
+    bookEvent(firebase_id, event_id)
+      .then(() => {
+        setIsLoading(false);
+        navigate("/booking");
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err);
+      });
   };
-
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <h1>Error occurred, please try again.</h1>;
+  }
   return (
     <div>
       <div className="selectedevent">
@@ -75,9 +97,8 @@ const SelectedEvent = () => {
         <p className="eventcard.row event_id">{singleEvent.gender}</p>
         <p className="eventcard.row event_id">🎂 {singleEvent.age_group}</p>
         <p className="eventcard.row event_id"> 📈 {singleEvent.skills_level}</p>
-        <Link to={`/events/booking`}>
-          <button onClick={handleBookEvent}>Book Event</button>
-        </Link>
+
+        <button onClick={handleBookEvent}>Book Event</button>
       </div>
       <div className="selectEvent comments">
         <h3 className="selectedEvents comments title">

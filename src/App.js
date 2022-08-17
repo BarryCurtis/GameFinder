@@ -18,6 +18,7 @@ import UserDetails from "./Components/UserDetails";
 import SelectedEvent from "./Components/SelectedEvent";
 import CreateEvent from "./Components/CreateEvent";
 import "./nav.css";
+import Booking from "./Components/Booking";
 
 function App() {
   // const { currentUser } = useAuth();
@@ -40,6 +41,7 @@ function App() {
               <Route path="/password-reset" element={<ForgotPassword />} />
               <Route path="/update-profile" element={<UpdateProfile />} />
               <Route path="/user-details" element={<UserDetails />} />
+              <Route path="/booking" element={<Booking />} />
             </Routes>
           </div>
         </div>
