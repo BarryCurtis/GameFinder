@@ -40,14 +40,26 @@ export function postUser(user) {
   return myApi.post("/users", user);
 }
 
-export function patchEvent(event_id) {
-  return myApi.patch(`/events/${event_id}`).then((data) => {
+export function patchEvent(event_id, updatedEvent) {
+  return myApi.patch(`/events/${event_id}`, updatedEvent).then((data) => {
+    console.log(data);
+  });
+}
+export function bookEvent(firebase, event) {
+  const bookingEvent = { firebase_id: firebase, event_id: event };
+  console.log(bookingEvent);
+  return myApi.post(`/user/events`, bookingEvent).then((data) => {
     return data.event;
   });
 }
 
-export function patchUser(firebase_id) {
-  return myApi.patch(`/users/${firebase_id}`).then(({ data }) => {
+export function patchUser(newUser) {
+  return myApi.patch(`/users`, newUser).then(({ data }) => {
     return data.user;
   });
+}
+export function getUserBookedEvents(firebase_id){
+  return myApi.get(`user/${firebase_id}/events`).then(({data})=>{
+    return data.events
+  })
 }

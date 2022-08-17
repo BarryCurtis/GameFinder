@@ -41,7 +41,7 @@ const SignUp = () => {
     <div className="signup-form-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <p style={{ color: "red" }}>{error}</p>
-
+        <p>Please sign up to proceed:</p>
         <label htmlFor="email">
           <b>Email</b>
         </label>
