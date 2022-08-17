@@ -53,8 +53,8 @@ export function bookEvent(firebase, event) {
   });
 }
 
-export function patchUser(firebase_id) {
-  return myApi.patch(`/users/${firebase_id}`).then(({ data }) => {
+export function patchUser(newUser) {
+  return myApi.patch(`/users`, newUser).then(({ data }) => {
     return data.user;
   });
 }

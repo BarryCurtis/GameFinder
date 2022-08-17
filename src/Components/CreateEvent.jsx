@@ -18,11 +18,6 @@ const Create = () => {
   const [sentEvent, setSentEvent] = useState(false);
 
   const { currentUser } = useAuth();
-  // console.log(currentUser.uid);
-  // console.log(typeof cost);
-
-  // currentUser.UID = firebase_id of user
-  // make a dynamc value for firebase id
 
   function handleSubmit(e) {
     e.preventDefault();

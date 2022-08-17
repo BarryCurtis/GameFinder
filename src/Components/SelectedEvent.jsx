@@ -6,7 +6,8 @@ import {
   postComment,
   getEventsByID,
   bookEvent,
-  getUserByID
+  getUserByID,
+  patchUser,
 } from "../Utility/api";
 import { useAuth } from "../security/authContext";
 import Loading from "./Loading";
@@ -20,7 +21,7 @@ const SelectedEvent = () => {
   const navigate = useNavigate();
   const [eventOrganiserFirebase_id, seteventOrganiserFirebase_id] =
     useState("");
-  const [eventOrganiser, setEventOrangiser] = useState({});
+  const [eventOrganiser, setEventOrganiser] = useState({});
 
 
   useEffect(() => {
@@ -40,7 +41,7 @@ const SelectedEvent = () => {
 
   useEffect(() => {
     getUserByID(eventOrganiserFirebase_id).then((data) => {
-      setEventOrangiser(data);
+      setEventOrganiser(data);
     });
   }, [event_id, eventOrganiser, eventOrganiserFirebase_id]);
 
@@ -69,12 +70,33 @@ const SelectedEvent = () => {
         setError(err);
       });
   };
+
+
+  const handleClick = (e) => {
+    const newUser = {
+      firebase_id: eventOrganiser.firebase_id,
+      name: eventOrganiser.name,
+      username: eventOrganiser.username,
+      age: eventOrganiser.age,
+      gender: eventOrganiser.gender,
+      profile_icon: eventOrganiser.profile_icon,
+      skills_level: Number(eventOrganiser.skills_level),
+      rating: eventOrganiser.rating + Number(e.target.value),
+      event_id: eventOrganiser.event_id,
+    };
+    patchUser(newUser);
+    setEventOrganiser(newUser);
+  };
+
+
   if (isLoading) {
     return <Loading />;
   }
   if (error) {
     return <h1>Error occurred, please try again.</h1>;
   }
+
+
   return (
     <div>
       <div className="selectedevent">
@@ -88,6 +110,13 @@ const SelectedEvent = () => {
         </p>
 
         <p className="eventOrganiser_rating">Rated: {eventOrganiser.rating}</p>
+        <button onClick={handleClick} value="1" className="thumbsUp">
+          👍
+        </button>
+        <p className="eventOrganiser_ratingText">Rate this organiser</p>
+        <button onClick={handleClick} value="-1" className="thumbsUp">
+          👎
+        </button>
         <p className="eventcard.row event_id">Sport: {singleEvent.category}</p>
 
         <p className="eventcard.row event_id">🗓️ {singleEvent.date}</p>
