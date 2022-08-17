@@ -13,6 +13,9 @@ import { useAuth } from "../security/authContext";
 import Loading from "./Loading";
 
 const SelectedEvent = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { currentUser } = useAuth();
   const { event_id } = useParams();
   const [singleEvent, setSingleEvent] = useState([]);
@@ -22,7 +25,6 @@ const SelectedEvent = () => {
   const [eventOrganiserFirebase_id, seteventOrganiserFirebase_id] =
     useState("");
   const [eventOrganiser, setEventOrganiser] = useState({});
-
 
   useEffect(() => {
     getEventsByID(event_id).then((event) => {
@@ -71,7 +73,6 @@ const SelectedEvent = () => {
       });
   };
 
-
   const handleClick = (e) => {
     const newUser = {
       firebase_id: eventOrganiser.firebase_id,
@@ -88,14 +89,12 @@ const SelectedEvent = () => {
     setEventOrganiser(newUser);
   };
 
-
   if (isLoading) {
     return <Loading />;
   }
   if (error) {
     return <h1>Error occurred, please try again.</h1>;
   }
-
 
   return (
     <div>
@@ -139,9 +138,8 @@ const SelectedEvent = () => {
         <p className="eventcard.row event_id">
           Skill Level: ⭐ {singleEvent.skills_level}
         </p>
-       
-        <button onClick={handleBookEvent}>Book Event</button>
 
+        <button onClick={handleBookEvent}>Book Event</button>
       </div>
       <div className="selectEvent comments">
         <h3 className="selectedEvents comments title">
