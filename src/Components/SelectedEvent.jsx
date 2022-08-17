@@ -60,17 +60,16 @@ const SelectedEvent = () => {
           <h4>No comments yet for this article</h4>
         )}
       </div>
-      <div className="selectedEvent_addComments">
+      <div className="selectedEvent_addComment">
         <h3 className="selectedEvents.comments.title">
           Post a new comments about this event :
         </h3>
-        <form onSubmit={handleSubmit} className="selectedEvent.addComment">
+        <form onSubmit={handleSubmit} className="selectedEvent_addComment">
           <textarea
             value={newComment}
             onChange={(e) => {
               setNewComment(e.target.value);
             }}
-            className="selectedEvent.addComment.commentArea"
             id="newComment"
             name="newComment"
             rows="4"
