@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getUserBookedEvents } from "../Utility/api";
 import { useAuth } from "../security/authContext";
-import EventCard from "./EventCard";
+import BookedEventCard from "./BookedEventCard";
 import Loading from "./Loading";
 const UserBookedEvents = () => {
   const [userevents, setUserEvents] = useState([]);
@@ -23,7 +23,7 @@ const UserBookedEvents = () => {
   return (
     <>
       {userevents && userevents.map((event) => {
-        return <EventCard event={event} />;
+        return <BookedEventCard event={event} />;
       })}
     </>
   );
