@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getEventsByID } from "../Utility/api";
-import { getComments } from "../Utility/api";
+import { Link, useParams } from "react-router-dom";
+import {
+  getComments,
+  patchEvent,
+  postComment,
+  getEventsByID,
+  bookEvent,
+  getUserByID
+} from "../Utility/api";
 import { useAuth } from "../security/authContext";
-import { postComment } from "../Utility/api";
-import { getUserByID } from "../Utility/api";
 
 const SelectedEvent = () => {
   const { currentUser } = useAuth();
@@ -44,6 +48,10 @@ const SelectedEvent = () => {
     };
     postComment(event_id, commentToSend);
   };
+  const handleBookEvent = () => {
+    const firebase_id = currentUser.uid;
+    bookEvent(firebase_id, event_id);
+  };
 
   return (
     <div>
@@ -67,7 +75,9 @@ const SelectedEvent = () => {
         <p className="eventcard.row event_id">{singleEvent.gender}</p>
         <p className="eventcard.row event_id">🎂 {singleEvent.age_group}</p>
         <p className="eventcard.row event_id"> 📈 {singleEvent.skills_level}</p>
-        <button>Book Event</button>
+        <Link to={`/events/booking`}>
+          <button onClick={handleBookEvent}>Book Event</button>
+        </Link>
       </div>
       <div className="selectEvent comments">
         <h3 className="selectedEvents comments title">
@@ -76,7 +86,7 @@ const SelectedEvent = () => {
 
         {comments.length > 0 ? (
           comments.map((c) => {
-            return <p>{c.comment_body}</p>;
+            return <p key={c.comment_id}>{c.comment_body}</p>;
           })
         ) : (
           <h4>No comments yet for this article</h4>
