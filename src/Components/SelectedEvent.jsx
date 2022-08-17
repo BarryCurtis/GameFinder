@@ -6,6 +6,7 @@ import {
   postComment,
   getEventsByID,
   bookEvent,
+  getUserByID
 } from "../Utility/api";
 import { useAuth } from "../security/authContext";
 
@@ -15,10 +16,14 @@ const SelectedEvent = () => {
   const [singleEvent, setSingleEvent] = useState([]);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const [eventOrganiserFirebase_id, seteventOrganiserFirebase_id] =
+    useState("");
+  const [eventOrganiser, setEventOrangiser] = useState({});
 
   useEffect(() => {
     getEventsByID(event_id).then((event) => {
       setSingleEvent(event);
+      seteventOrganiserFirebase_id(event.firebase_id).then(() => {});
     });
   }, [event_id]);
 
@@ -27,6 +32,12 @@ const SelectedEvent = () => {
       setComments(data);
     });
   }, [event_id]);
+
+  useEffect(() => {
+    getUserByID(eventOrganiserFirebase_id).then((data) => {
+      setEventOrangiser(data);
+    });
+  }, [event_id, eventOrganiser, eventOrganiserFirebase_id]);
 
   const handleSubmit = (e) => {
     const commentToSend = {
@@ -45,7 +56,18 @@ const SelectedEvent = () => {
   return (
     <div>
       <div className="selectedevent">
+        <img
+          className="selectedEvent_eventOrganiser"
+          src={eventOrganiser.profile_icon}
+          alt={eventOrganiser.profile_icon}
+        />
+        <p className="eventOrganiser_user">
+          Organiser: {eventOrganiser.username}
+        </p>
+
+        <p className="eventOrganiser_rating">Rated: {eventOrganiser.rating}</p>
         <p className="eventcard.row event_id">Sport: {singleEvent.category}</p>
+
         <p className="eventcard.row event_id">🗓️ {singleEvent.date}</p>
         <p className="eventcard.row event_id">🕝 {singleEvent.time}</p>
         <p className="eventcard.row event_id"> ⏱️ {singleEvent.duration}</p>
@@ -70,17 +92,16 @@ const SelectedEvent = () => {
           <h4>No comments yet for this article</h4>
         )}
       </div>
-      <div className="selectedEvent_addComments">
+      <div className="selectedEvent_addComment">
         <h3 className="selectedEvents.comments.title">
           Post a new comments about this event :
         </h3>
-        <form onSubmit={handleSubmit} className="selectedEvent.addComment">
+        <form onSubmit={handleSubmit} className="selectedEvent_addComment">
           <textarea
             value={newComment}
             onChange={(e) => {
               setNewComment(e.target.value);
             }}
-            className="selectedEvent.addComment.commentArea"
             id="newComment"
             name="newComment"
             rows="4"

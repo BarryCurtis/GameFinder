@@ -12,9 +12,9 @@ const EventsList = () => {
   }, []);
 
   return (
-    <div classname="eventslist">
+    <div className="eventslist">
       <h2 className="eventslist.subtitle">See Latest Bookable Events Below</h2>
-      <Map />
+      <Map events={events} />
       <div className="eventslist filters">
         <Filters setEvents={setEvents} />
       </div>
