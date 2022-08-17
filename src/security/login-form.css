@@ -5,10 +5,12 @@ a {
   margin-bottom: 10px;
 }
 
-.sub-but {
-  margin-top: 2rem;
+.login-button {
+  margin-top: 1rem;
   margin-bottom: 0;
   padding-bottom: 0;
+  background: #0a2145;
+  color: black;
 }
 
 .login-form-container {

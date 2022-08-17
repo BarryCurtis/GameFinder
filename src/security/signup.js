@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import "./signUpPage-style.css";
 import { useAuth } from "./authContext";
 import { Link, useNavigate } from "react-router-dom";
-import LogOut from "./LogOut";
 import Loading from "../Components/Loading";
 
 const SignUp = () => {
@@ -73,17 +72,16 @@ const SignUp = () => {
           id="pswcon"
           ref={passwordconfirmRef}
         />
-
-        <button className="sub-but" type="submit" disabled={loading}>
-          SignUp
-        </button>
+        <div className="wrapper">
+          <button className="sub-but" type="submit" disabled={loading}>
+            SignUp
+          </button>
+          <p className="existingusertext">Or </p>
+          <Link className="loginbutton" to="/login">
+            Log In
+          </Link>
+        </div>
       </form>
-      <div className="signup-bar">
-        <p className="existingusertext">Existing User.. </p>
-        <Link className="loginbutton" to="/login">
-          Log In
-        </Link>
-      </div>
     </div>
   );
 };

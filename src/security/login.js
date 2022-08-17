@@ -40,9 +40,7 @@ const LogIn = () => {
         alt="sportimage"
       ></img>
       <form className="login-form" onSubmit={handleSubmit}>
-        <p style={{ color: "red" }}>{error}</p>
-        <p>{currentUser && currentUser.email}</p>
-
+        {error ? <p style={{ color: "red" }}>{error}</p> : null}
         <label htmlFor="email">
           <b>Email</b>
         </label>
@@ -64,17 +62,19 @@ const LogIn = () => {
           id="psw"
           ref={passwordRef}
         />
-        <button className="sub-but" type="submit" disabled={loading}>
-          Log In
-        </button>
+        <div className="flex-center">
+          <button className="login-button" type="submit" disabled={loading}>
+            Log In
+          </button>
+          <Link to="/signup" className="signupbar">
+            Sign Up
+          </Link>
+        </div>
       </form>
       <Link to="/password-reset" className="forgot-link">
         Forgot Password
       </Link>
       <br></br>
-      <Link to="/signup" className="signupbar">
-        Sign Up
-      </Link>
     </div>
   );
 };
