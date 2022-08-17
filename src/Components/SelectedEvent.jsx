@@ -23,7 +23,6 @@ const SelectedEvent = () => {
     useState("");
   const [eventOrganiser, setEventOrganiser] = useState({});
 
-
   useEffect(() => {
     getEventsByID(event_id).then((event) => {
       setSingleEvent(event);
@@ -71,7 +70,6 @@ const SelectedEvent = () => {
       });
   };
 
-
   const handleClick = (e) => {
     const newUser = {
       firebase_id: eventOrganiser.firebase_id,
@@ -88,14 +86,12 @@ const SelectedEvent = () => {
     setEventOrganiser(newUser);
   };
 
-
   if (isLoading) {
     return <Loading />;
   }
   if (error) {
     return <h1>Error occurred, please try again.</h1>;
   }
-
 
   return (
     <div>
@@ -109,10 +105,10 @@ const SelectedEvent = () => {
         <p className="organisertext">{eventOrganiser.username}</p>
 
         <p className="eventOrganiser_rating">Rated: {eventOrganiser.rating}</p>
+        <p className="eventOrganiser_ratingText">Rate this organiser</p>
         <button onClick={handleClick} value="1" className="thumbsUp">
           👍
         </button>
-        <p className="eventOrganiser_ratingText">Rate this organiser</p>
         <button onClick={handleClick} value="-1" className="thumbsUp">
           👎
         </button>
@@ -139,9 +135,8 @@ const SelectedEvent = () => {
         <p className="eventcard.row event_id">
           Skill Level: ⭐ {singleEvent.skills_level}
         </p>
-       
-        <button onClick={handleBookEvent}>Book Event</button>
 
+        <button onClick={handleBookEvent}>Book Event</button>
       </div>
       <div className="selectEvent comments">
         <h3 className="selectedEvents comments title">
