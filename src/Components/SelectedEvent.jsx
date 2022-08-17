@@ -13,6 +13,9 @@ import { useAuth } from "../security/authContext";
 import Loading from "./Loading";
 
 const SelectedEvent = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { currentUser } = useAuth();
   const { event_id } = useParams();
   const [singleEvent, setSingleEvent] = useState([]);
