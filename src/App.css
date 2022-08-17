@@ -170,6 +170,17 @@
   margin-bottom: 0px;
 }
 
+/* booked event */
+
+.paypalimage {
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+
+}
 /* event card */
 .eventcard {
 
@@ -232,6 +243,18 @@ create h2 {
 
 
 /* account */
+
+.bookedevents {
+  background: #0a2145;
+  color: #ffff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "Coustard";
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
+}
 
 .account {
   max-width: 400px;
@@ -351,9 +374,15 @@ create h2 {
 
 /* user image */
 
-.userimage, .eventorganiser{
+.userimage{
   height: 50px;
   border-radius: 50%;
+}
+
+.eventorganiser{
+  height: 100px;
+  border-radius: 100px;
+  ;
 }
 
 .guestuserimage {
@@ -410,4 +439,15 @@ create h2 {
   text-shadow: 2rem;
   border-radius: 10%;
   padding: none;
+
+  box-sizing: border-box;
+  border: 2px solid #0a2145;;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  overflow:hidden;
+  box-shadow: 0 2px 10px #0a2145;
 }

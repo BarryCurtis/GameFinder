@@ -3,22 +3,27 @@ import UpdateProfile from "../security/updateProfile";
 import { useAuth } from "../security/authContext";
 import LogOut from "../security/LogOut";
 import { Link } from "react-router-dom";
-import {getUserByID} from "../Utility/api";
-import { useEffect,useState } from "react";
-import UserDetails from './UserDetails';
+import { getUserByID } from "../Utility/api";
+import { useEffect, useState } from "react";
+import UserDetails from "./UserDetails";
 const Account = () => {
   const { currentUser } = useAuth();
   const [userData, setUserData] = useState(true);
-  useEffect(()=>{
-    if(currentUser){
-      getUserByID(currentUser.uid).catch(err=>{
-        setUserData(false)
-      })
+  const [userName, setUserName] = useState("");
+  useEffect(() => {
+    if (currentUser) {
+      getUserByID(currentUser.uid)
+        .then((data) => {
+          setUserName(data.username);
+        })
+        .catch((err) => {
+          setUserData(false);
+        });
     }
-  },[currentUser])
-  
-  if(!userData){
-   return <UserDetails />
+  }, [currentUser]);
+
+  if (!userData) {
+    return <UserDetails />;
   }
 
   return (
@@ -26,13 +31,15 @@ const Account = () => {
       <>
         {currentUser ? (
           <>
-            <h2>User Account {currentUser && currentUser.email}</h2>
-            <Link to={`/user/Booked-events/${currentUser.uid}`}>
-              <button>Booked Event</button>
-            </Link>
-            <Link to={`/user/Created-events/${currentUser.uid}`}>
-              <button>Your Events</button>
-            </Link>
+            <h2>User Account: {currentUser && userName}</h2>
+            <button className="bookedevents">Booked Events</button>
+            {/* <Link
+              className="bookedevents"
+              to={`/user/Booked-events/${currentUser.uid}`}
+            ></Link> */}
+            {/* <Link to={`/user/Created-events/${currentUser.uid}`}>
+              <button>My Events</button>
+            </Link> */}
             <UpdateProfile />
             <LogOut />
           </>
