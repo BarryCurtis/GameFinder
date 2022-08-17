@@ -34,14 +34,14 @@ const SignUp = () => {
     }
     setLoading(false);
   }
- if (loading){
-  return <Loading />
- }
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <div className="signup-form-container">
       <form className="signup-form" onSubmit={handleSubmit}>
         <p style={{ color: "red" }}>{error}</p>
-
+        <p>Please sign up to proceed:</p>
         <label htmlFor="email">
           <b>Email</b>
         </label>
