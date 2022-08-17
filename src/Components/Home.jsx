@@ -1,10 +1,15 @@
 import Map from "./Map";
 import { Link } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import { getEvents } from "../Utility/api";
 const Home = () => {
+  const [events, setEvents] = useState([]);
+  useEffect(() => {
+    getEvents().then((events) => setEvents(events));
+  }, []);
   return (
     <div className="home">
-      <Map />
+      <div className="map-wrapper"><Map events={events}/></div>
       <br />
       <div className="home.buttons">
         <Link to="/events">
