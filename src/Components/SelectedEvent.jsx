@@ -29,7 +29,7 @@ const SelectedEvent = () => {
   useEffect(() => {
     getEventsByID(event_id).then((event) => {
       setSingleEvent(event);
-      seteventOrganiserFirebase_id(event.firebase_id).then(() => {});
+      seteventOrganiserFirebase_id(event.firebase_id);
     });
   }, [event_id]);
   const [isLoading, setIsLoading] = useState(false);
@@ -108,10 +108,10 @@ const SelectedEvent = () => {
         <p className="organisertext">{eventOrganiser.username}</p>
 
         <p className="eventOrganiser_rating">Rated: {eventOrganiser.rating}</p>
+        <p className="eventOrganiser_ratingText">Rate this organiser</p>
         <button onClick={handleClick} value="1" className="thumbsUp">
           👍
         </button>
-        <p className="eventOrganiser_ratingText">Rate this organiser</p>
         <button onClick={handleClick} value="-1" className="thumbsUp">
           👎
         </button>

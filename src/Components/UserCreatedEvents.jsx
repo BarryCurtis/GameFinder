@@ -3,6 +3,7 @@ import { getEvents } from "../Utility/api";
 import { useAuth } from "../security/authContext";
 import EventCard from "./EventCard";
 import Loading from "./Loading";
+import CreatedEventCard from "./CreatedEventCard";
 const UserCreatedEvents = () => {
   const [userevents, setUserEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
@@ -26,7 +27,7 @@ const UserCreatedEvents = () => {
   return (
     <>
       {filteredEvents.map((event) => {
-        return <EventCard event={event} />;
+        return <CreatedEventCard event={event} />;
       })}
     </>
   );

@@ -60,6 +60,10 @@ export function patchUser(newUser) {
 }
 export function getUserBookedEvents(firebase_id){
   return myApi.get(`user/${firebase_id}/events`).then(({data})=>{
-    return data.events
+    return data.userEvents
   })
+}
+
+export function cancelEvent(event_id){
+  return myApi.delete(`/events/${event_id}`)
 }
