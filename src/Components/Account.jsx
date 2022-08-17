@@ -3,8 +3,24 @@ import UpdateProfile from "../security/updateProfile";
 import { useAuth } from "../security/authContext";
 import LogOut from "../security/LogOut";
 import { Link } from "react-router-dom";
+import {getUserByID} from "../Utility/api";
+import { useEffect,useState } from "react";
+import UserDetails from './UserDetails';
 const Account = () => {
   const { currentUser } = useAuth();
+  const [userData, setUserData] = useState(true);
+  useEffect(()=>{
+    if(currentUser){
+      getUserByID(currentUser.uid).catch(err=>{
+        setUserData(false)
+      })
+    }
+  },[currentUser])
+  
+  if(!userData){
+   return <UserDetails />
+  }
+
   return (
     <div className="account">
       <>
