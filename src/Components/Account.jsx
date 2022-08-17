@@ -31,15 +31,13 @@ const Account = () => {
       <>
         {currentUser ? (
           <>
-            <h2>User Account: {currentUser && userName}</h2>
-            <button className="bookedevents">Booked Events</button>
-            {/* <Link
-              className="bookedevents"
-              to={`/user/Booked-events/${currentUser.uid}`}
-            ></Link> */}
-            {/* <Link to={`/user/Created-events/${currentUser.uid}`}>
-              <button>My Events</button>
-            </Link> */}
+            <h3>User Account: {currentUser && userName}</h3>
+            <Link to={`/user/Booked-events/${currentUser.uid}`}>
+              <button className="bookedevents">Booked Events</button>
+            </Link>
+            <Link to={`/user/Created-events/${currentUser.uid}`}>
+              <button className="bookedevents">My Events</button>
+            </Link>
             <UpdateProfile />
             <LogOut />
           </>

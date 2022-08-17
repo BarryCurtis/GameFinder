@@ -5,19 +5,24 @@ import { getEvents } from "../Utility/api";
 import Loading from "./Loading";
 const Home = () => {
   const [events, setEvents] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
-    setIsLoading(true)
-    getEvents().then((events) => setEvents(events)).finally(()=>{
-      setIsLoading(false)
-    })
+    setIsLoading(true);
+    getEvents()
+      .then((events) => setEvents(events))
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
-  if(isLoading){
-    return <Loading />
+  if (isLoading) {
+    return <Loading />;
   }
   return (
     <div className="home">
-      <div className="map-wrapper"><Map events={events}/></div>
+      <h3 className="eventslist.subtitle">Find your game below:</h3>
+      <div className="map-wrapper">
+        <Map events={events} />
+      </div>
       <br />
       <div className="home.buttons">
         <Link to="/events">
@@ -32,4 +37,3 @@ const Home = () => {
 };
 
 export default Home;
-
