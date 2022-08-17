@@ -79,8 +79,10 @@ const SignUp = () => {
         </button>
       </form>
       <div className="signup-bar">
-        <p>Existing User.. </p>
-        <Link to="/login">Log In</Link>
+        <p className="existingusertext">Existing User.. </p>
+        <Link className="loginbutton" to="/login">
+          Log In
+        </Link>
       </div>
     </div>
   );

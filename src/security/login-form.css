@@ -1,16 +1,19 @@
 b,
-button,
 input,
 a {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.sub-but {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .login-form-container {
-  border: 1px solid black;
-  border-radius: 10px;
+  padding-bottom:5rem;
   width: 30rem;
-  margin: 10vh auto;
   height: fit-content;
   font-weight: 400;
   background-color: #ffffff;
@@ -28,42 +31,23 @@ a {
   font-size: 22px;
   float: left;
   font-weight: inherit;
+ 
 }
 .login-form img {
   border-radius: 10px;
 }
-.sub-but {
-  background-color: #a1d33c;
-}
 
-.si-but {
-  background-color: white;
-  color: black;
-}
+
 button {
   cursor: pointer;
-}
-.signup-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.signup-bar a {
-  text-decoration: none;
-  border: none;
-  background-color: inherit;
-  color: rgb(46, 46, 160);
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-.signup-bar p {
-  font-weight: inherit;
 }
 
 .forgot-link {
   width: fit-content;
   margin: 0 auto;
+  padding-bottom: 2rem;
   display: block;
-  font-size: larger;
+  font-size: medium;
+  color: #0a2145;
   text-decoration: underline;
 }

@@ -9,4 +9,4 @@ export const cardImages = {
 };
 
 export const guestUserIcon =
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnsCfW5adsSWh_s_lJRGh2FxEcUtwAwcC2G9NtFYMTbg&s";
+  "https://cdn3.iconfinder.com/data/icons/dashboard-ui-element/32/Dashboard_icon_design_expanded-28-512.png";

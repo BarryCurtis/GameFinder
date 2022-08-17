@@ -26,7 +26,8 @@ body {
 
 .navbar ul {
     font-family: "Coustard";
-    padding: 0;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
     margin: 0;
     list-style: none;
     display: flex;

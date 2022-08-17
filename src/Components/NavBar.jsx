@@ -1,6 +1,20 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { useAuth } from "../security/authContext";
+import { getUserByID } from "../Utility/api";
+import { guestUserIcon } from "../Images/card.images";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
+  const { currentUser } = useAuth();
+  const [userIcon, setUserIcon] = useState("");
+
+  useEffect(() => {
+    if (currentUser)
+      getUserByID(currentUser.uid).then((data) => {
+        setUserIcon(data.profile_icon);
+      });
+  }, [currentUser]);
+
   return (
     <nav className="navbar">
       <Link to="/" className="homelink">
@@ -9,7 +23,7 @@ export default function Navbar() {
       <ul>
         <li className="active">
           <CustomLink to="/events" className="eventslink">
-            Events List
+            Events
           </CustomLink>
         </li>
         <li className="active">
@@ -18,6 +32,11 @@ export default function Navbar() {
           </CustomLink>
         </li>
       </ul>
+      {currentUser ? (
+        <img className="userimage" src={userIcon} alt="userimage"></img>
+      ) : (
+        <img className="guestuserimage" src={guestUserIcon} alt="guest"></img>
+      )}
     </nav>
   );
 }

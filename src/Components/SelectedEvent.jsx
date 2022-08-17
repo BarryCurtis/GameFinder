@@ -101,13 +101,12 @@ const SelectedEvent = () => {
     <div>
       <div className="selectedevent">
         <img
-          className="selectedEvent_eventOrganiser"
+          className="eventorganiser"
           src={eventOrganiser.profile_icon}
           alt={eventOrganiser.profile_icon}
         />
-        <p className="eventOrganiser_user">
-          Organiser: {eventOrganiser.username}
-        </p>
+        <p>Your Event Organiser is:</p>
+        <p className="organisertext">{eventOrganiser.username}</p>
 
         <p className="eventOrganiser_rating">Rated: {eventOrganiser.rating}</p>
         <button onClick={handleClick} value="1" className="thumbsUp">
@@ -119,15 +118,30 @@ const SelectedEvent = () => {
         </button>
         <p className="eventcard.row event_id">Sport: {singleEvent.category}</p>
 
-        <p className="eventcard.row event_id">🗓️ {singleEvent.date}</p>
-        <p className="eventcard.row event_id">🕝 {singleEvent.time}</p>
-        <p className="eventcard.row event_id"> ⏱️ {singleEvent.duration}</p>
-        <p className="eventcard.row event_id">{singleEvent.location}</p>
-        <p className="eventcard.row event_id">{singleEvent.gender}</p>
-        <p className="eventcard.row event_id">🎂 {singleEvent.age_group}</p>
-        <p className="eventcard.row event_id"> 📈 {singleEvent.skills_level}</p>
-
+        <p className="eventcard.row event_id">
+          Event Date: 📅 {singleEvent.date}
+        </p>
+        <p className="eventcard.row event_id">Time: ⏰ {singleEvent.time}</p>
+        <p className="eventcard.row event_id">
+          {" "}
+          Duration: ⌛ {singleEvent.duration}
+        </p>
+        <p className="eventcard.row event_id">
+          Location: 📍 {singleEvent.location}
+        </p>
+        <p className="eventcard.row event_id">
+          {" "}
+          Gender: 🧑‍🤝‍🧑 {singleEvent.gender}
+        </p>
+        <p className="eventcard.row event_id">
+          Age Group: 🔞 {singleEvent.age_group}
+        </p>
+        <p className="eventcard.row event_id">
+          Skill Level: ⭐ {singleEvent.skills_level}
+        </p>
+       
         <button onClick={handleBookEvent}>Book Event</button>
+
       </div>
       <div className="selectEvent comments">
         <h3 className="selectedEvents comments title">
