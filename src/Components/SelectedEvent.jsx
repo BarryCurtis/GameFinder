@@ -66,7 +66,6 @@ const SelectedEvent = () => {
       rating: eventOrganiser.rating + Number(e.target.value),
       event_id: eventOrganiser.event_id,
     };
-    console.log(newUser);
     patchUser(newUser);
     setEventOrganiser(newUser);
   };
