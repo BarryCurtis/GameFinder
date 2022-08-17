@@ -4,7 +4,6 @@ import { useAuth } from "../security/authContext";
 import LogOut from "../security/LogOut";
 const Account = () => {
   const { currentUser } = useAuth();
-  console.log(currentUser);
   return (
     <div className="account">
       <>
