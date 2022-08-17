@@ -12,11 +12,10 @@ a {
 }
 
 .login-form-container {
-  padding-bottom:5rem;
+  padding-bottom: 5rem;
   width: 30rem;
   height: fit-content;
   font-weight: 400;
-  background-color: #ffffff;
 }
 
 .login-form {
@@ -31,12 +30,10 @@ a {
   font-size: 22px;
   float: left;
   font-weight: inherit;
- 
 }
 .login-form img {
   border-radius: 10px;
 }
-
 
 button {
   cursor: pointer;
