@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { getEventsByID } from "../Utility/api";
-import { getComments } from "../Utility/api";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import {
+  getComments,
+  patchEvent,
+  postComment,
+  getEventsByID,
+  bookEvent,
+  getUserByID,
+  patchUser,
+} from "../Utility/api";
 import { useAuth } from "../security/authContext";
-import { postComment } from "../Utility/api";
-import { getUserByID } from "../Utility/api";
+import Loading from "./Loading";
 
 const SelectedEvent = () => {
   const { currentUser } = useAuth();
@@ -12,9 +18,11 @@ const SelectedEvent = () => {
   const [singleEvent, setSingleEvent] = useState([]);
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
+  const navigate = useNavigate();
   const [eventOrganiserFirebase_id, seteventOrganiserFirebase_id] =
     useState("");
-  const [eventOrganiser, setEventOrangiser] = useState({});
+  const [eventOrganiser, setEventOrganiser] = useState({});
+
 
   useEffect(() => {
     getEventsByID(event_id).then((event) => {
@@ -22,6 +30,8 @@ const SelectedEvent = () => {
       seteventOrganiserFirebase_id(event.firebase_id).then(() => {});
     });
   }, [event_id]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getComments(event_id).then((data) => {
@@ -31,7 +41,7 @@ const SelectedEvent = () => {
 
   useEffect(() => {
     getUserByID(eventOrganiserFirebase_id).then((data) => {
-      setEventOrangiser(data);
+      setEventOrganiser(data);
     });
   }, [event_id, eventOrganiser, eventOrganiserFirebase_id]);
 
@@ -44,6 +54,48 @@ const SelectedEvent = () => {
     };
     postComment(event_id, commentToSend);
   };
+  const handleBookEvent = () => {
+    setIsLoading(true);
+    if (!currentUser) {
+      navigate("/signup");
+    }
+    const firebase_id = currentUser.uid;
+    bookEvent(firebase_id, event_id)
+      .then(() => {
+        setIsLoading(false);
+        navigate("/booking");
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err);
+      });
+  };
+
+
+  const handleClick = (e) => {
+    const newUser = {
+      firebase_id: eventOrganiser.firebase_id,
+      name: eventOrganiser.name,
+      username: eventOrganiser.username,
+      age: eventOrganiser.age,
+      gender: eventOrganiser.gender,
+      profile_icon: eventOrganiser.profile_icon,
+      skills_level: Number(eventOrganiser.skills_level),
+      rating: eventOrganiser.rating + Number(e.target.value),
+      event_id: eventOrganiser.event_id,
+    };
+    patchUser(newUser);
+    setEventOrganiser(newUser);
+  };
+
+
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <h1>Error occurred, please try again.</h1>;
+  }
+
 
   return (
     <div>
@@ -58,6 +110,13 @@ const SelectedEvent = () => {
         </p>
 
         <p className="eventOrganiser_rating">Rated: {eventOrganiser.rating}</p>
+        <button onClick={handleClick} value="1" className="thumbsUp">
+          👍
+        </button>
+        <p className="eventOrganiser_ratingText">Rate this organiser</p>
+        <button onClick={handleClick} value="-1" className="thumbsUp">
+          👎
+        </button>
         <p className="eventcard.row event_id">Sport: {singleEvent.category}</p>
 
         <p className="eventcard.row event_id">🗓️ {singleEvent.date}</p>
@@ -67,7 +126,8 @@ const SelectedEvent = () => {
         <p className="eventcard.row event_id">{singleEvent.gender}</p>
         <p className="eventcard.row event_id">🎂 {singleEvent.age_group}</p>
         <p className="eventcard.row event_id"> 📈 {singleEvent.skills_level}</p>
-        <button>Book Event</button>
+
+        <button onClick={handleBookEvent}>Book Event</button>
       </div>
       <div className="selectEvent comments">
         <h3 className="selectedEvents comments title">
@@ -76,7 +136,7 @@ const SelectedEvent = () => {
 
         {comments.length > 0 ? (
           comments.map((c) => {
-            return <p>{c.comment_body}</p>;
+            return <p key={c.comment_id}>{c.comment_body}</p>;
           })
         ) : (
           <h4>No comments yet for this article</h4>

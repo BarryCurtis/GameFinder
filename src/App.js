@@ -20,6 +20,7 @@ import CreateEvent from "./Components/CreateEvent";
 import "./nav.css";
 import UserBookedEvents from "./Components/UserBookedEvents";
 import UserCreatedEvents from "./Components/UserCreatedEvents";
+import Booking from "./Components/Booking";
 
 function App() {
   // const { currentUser } = useAuth();
@@ -44,6 +45,7 @@ function App() {
               <Route path="/user-details" element={<UserDetails />} />
               <Route path="/user/Booked-events/:firebase_id" element={<UserBookedEvents/>}/>
               <Route path="/user/Created-events/:firebase_id" element={<UserCreatedEvents/>}/>
+              <Route path="/booking" element={<Booking />} />
             </Routes>
           </div>
         </div>
