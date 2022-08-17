@@ -13,8 +13,10 @@ const EventsList = () => {
 
   return (
     <div className="eventslist">
-      <h2 className="eventslist.subtitle">See Latest Bookable Events</h2>
-      <Map events={events} />
+      <h3 className="eventslist.subtitle">See Latest Bookable Events</h3>
+      <div className="map-wrapper">
+        <Map events={events} />
+      </div>
       <div className="eventslist filters">
         <Filters setEvents={setEvents} />
       </div>

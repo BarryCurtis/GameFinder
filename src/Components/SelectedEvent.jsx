@@ -108,13 +108,15 @@ const SelectedEvent = () => {
         <p className="organisertext">{eventOrganiser.username}</p>
 
         <p className="eventOrganiser_rating">Rated: {eventOrganiser.rating}</p>
+        <div className="thumbs">
+          <button onClick={handleClick} value="1" className="thumbsUp">
+            👍
+          </button>
+          <button onClick={handleClick} value="-1" className="thumbsUp">
+            👎
+          </button>
+        </div>
         <p className="eventOrganiser_ratingText">Rate this organiser</p>
-        <button onClick={handleClick} value="1" className="thumbsUp">
-          👍
-        </button>
-        <button onClick={handleClick} value="-1" className="thumbsUp">
-          👎
-        </button>
         <p className="eventcard.row event_id">Sport: {singleEvent.category}</p>
 
         <p className="eventcard.row event_id">

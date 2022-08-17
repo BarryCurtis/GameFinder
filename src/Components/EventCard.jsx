@@ -15,7 +15,7 @@ const EventCard = ({ event }) => {
       <p className="eventcard-text">Location: 📍 {event.location}</p>
       <p className="eventcard-text">Gender: 🧑‍🤝‍🧑 {event.gender}</p>
       <p className="eventcard-text">Age Group: 🔞 {event.age_group}</p>
-      <p className="eventcard-text">Skill Lvel: ⭐ {event.skills_level}</p>
+      <p className="eventcard-text">Skill Level: ⭐ {event.skills_level}</p>
       <p className="eventcard-text">
         Players Needed: 🤼 {event.needed_players}
       </p>

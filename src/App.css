@@ -8,19 +8,31 @@
   font-family: "Coustard", serif;
   display: flex;
   flex-direction: column;
+  background-color: #edf6fc;
 }
 
 .Title {
   font-family: "Bungee Shade", cursive;
-  font-size: 60px;
-  color: rgb(36, 35, 35);
-  
- 
+  font-size: 50px;
+  color: #0a2145;
+  margin: 10px;
 }
-.map-wrapper{
-  max-width: 400px;
+.map-wrapper {
+  max-width: 300px;
   margin: 0 auto;
   text-align: center;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.bookedevents {
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+.filters-categories {
+  display: flex;
+  justify-content: space-around;
 }
 .mappic {
   border-radius: 50%;
@@ -29,6 +41,9 @@
   margin-bottom: 30px;
 }
 
+.filters_choice {
+  width: 75px;
+}
 
 /* buttons */
 
@@ -54,8 +69,8 @@
   box-shadow: 0 2px 10px #0a2145;
 }
 
-
-.create button, .signupbar {
+.create button,
+.signupbar {
   background: #0a2145;
   color: #ffff;
   border: 0;
@@ -66,7 +81,7 @@
   box-shadow: 0 2px 10px #0a2145;
 }
 
-.loginbutton{
+.loginbutton {
   background: #0a2145;
   color: #ffff;
   border: 0;
@@ -86,7 +101,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
-  overflow:hidden;
+  overflow: hidden;
   box-shadow: 0 2px 10px #0a2145;
 }
 
@@ -98,7 +113,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
-  overflow:hidden;
+  overflow: hidden;
   box-shadow: 0 2px 10px #0a2145;
 }
 
@@ -110,7 +125,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
-  overflow:hidden;
+  overflow: hidden;
   box-shadow: 0 2px 10px #0a2145;
 }
 
@@ -122,7 +137,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
-  overflow:hidden;
+  overflow: hidden;
   box-shadow: 0 2px 10px #0a2145;
 }
 
@@ -136,7 +151,7 @@
   margin-inline-start: 8px;
   cursor: pointer;
   font-family: "Coustard";
-  overflow:hidden;
+  overflow: hidden;
   box-shadow: 0 2px 10px #0a2145;
 }
 
@@ -149,7 +164,7 @@
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
-  overflow:hidden;
+  overflow: hidden;
   box-shadow: 0 2px 10px #0a2145;
 }
 
@@ -162,10 +177,10 @@
   cursor: pointer;
   font-family: "Coustard";
   box-shadow: 0 2px 10px #0a2145;
-  
 }
 
-.logoutbutton, .logouttext {
+.logoutbutton,
+.logouttext {
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -179,26 +194,23 @@
   align-items: center;
   margin: auto;
   width: 100%;
-
 }
 /* event card */
 .eventcard {
-
   box-sizing: border-box;
-  border: 2px solid #0a2145;;
+  border: 2px solid #0a2145;
   border-radius: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   margin: 2rem;
-  overflow:hidden;
+  overflow: hidden;
   box-shadow: 0 2px 10px #0a2145;
 }
 
-.eventcard-text{
+.eventcard-text {
   margin: 8px;
-  
 }
 
 /* create event */
@@ -222,15 +234,32 @@ create h2 {
 
 .create input,
 .create textarea,
-.selectedEvent_addComment textarea,
-.create select,
-.filters select {
+.selectedEvent_addComment textarea {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;
+}
+
+.filters-order,
+.filters-category,
+.filters-gender,
+.filters-age {
+  width: 70px;
+  padding: 3px 3px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  font-family: "Coustard";
+}
+
+.filters-gender,
+.filters-age {
+  width: 100px;
+  font-family: "Coustard";
 }
 
 /* events list */
@@ -240,7 +269,6 @@ create h2 {
   margin: 0 auto;
   text-align: center;
 }
-
 
 /* account */
 
@@ -252,7 +280,7 @@ create h2 {
   border-radius: 8px;
   cursor: pointer;
   font-family: "Coustard";
-  overflow:hidden;
+  overflow: hidden;
   box-shadow: 0 2px 10px #0a2145;
 }
 
@@ -260,14 +288,12 @@ create h2 {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
-
 }
 
-.login-form-container h3{
-  padding-top:0;
+.login-form-container h3 {
+  padding-top: 0;
   padding-bottom: 1rem;
   margin-top: 0;
-
 }
 
 .account label {
@@ -292,13 +318,12 @@ create h2 {
 }
 
 .sportpic {
-  padding-top:0;
+  padding-top: 0;
   margin-top: 0;
   margin-bottom: 0;
-  width:50%;
+  width: 50%;
   height: 50%;
   border-radius: 50%;
- 
 }
 
 /* login form */
@@ -369,29 +394,40 @@ create h2 {
 
 .existingusertext {
   margin-top: 3rem;
-  font-size: 16px
+  font-size: 16px;
 }
 
 /* user image */
 
-.userimage{
+.userimage {
   height: 50px;
   border-radius: 50%;
 }
 
-.eventorganiser{
+.eventorganiser {
   height: 100px;
-  border-radius: 100px;
-  ;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid #0a2145;
+  box-shadow: 0 2px 10px #0a2145;
+  margin-top: 15px;
 }
+
+/* box-sizing: border-box;
+
+border-radius: 20px;
+margin-top: 10px;
+margin-bottom: 10px;
+display: flex;
+flex-direction: column;
+margin: 2rem;
+overflow: hidden; */
 
 .guestuserimage {
   height: 50px;
   border-radius: 50%;
   background-color: white;
- 
 }
-
 
 /* user details */
 
@@ -401,6 +437,15 @@ create h2 {
   text-align: center;
 }
 
+.thumbsUp {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.thumbs {
+  display: flex;
+  justify-content: center;
+}
 .userdetails label {
   text-align: left;
   display: block;
@@ -430,24 +475,24 @@ create h2 {
   border-radius: 50%;
 }
 
-.organisertext{
+.organisertext {
   font-family: "Coustard", cursive;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #0a2145;
   margin-top: 0;
   margin-bottom: 0;
   text-shadow: 2rem;
   border-radius: 10%;
-  padding: none;
-
+  padding: 10px;
   box-sizing: border-box;
-  border: 2px solid #0a2145;;
+  border: 2px solid #0a2145;
   border-radius: 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   display: flex;
   flex-direction: column;
-  margin: 2rem;
-  overflow:hidden;
+  margin: 2rem auto;
+  overflow: hidden;
   box-shadow: 0 2px 10px #0a2145;
+  max-width: fit-content;
 }
