@@ -58,3 +58,8 @@ export function patchUser(newUser) {
     return data.user;
   });
 }
+export function getUserBookedEvents(firebase_id){
+  return myApi.get(`user/${firebase_id}/events`).then(({data})=>{
+    return data.events
+  })
+}
