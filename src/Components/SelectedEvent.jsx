@@ -104,7 +104,7 @@ const SelectedEvent = () => {
           src={eventOrganiser.profile_icon}
           alt={eventOrganiser.profile_icon}
         />
-        <p>Your Event Organiser is:</p>
+        <p>Your Game Organiser is:</p>
         <p className="organisertext">{eventOrganiser.username}</p>
 
         <p className="eventOrganiser_rating">Rated: {eventOrganiser.rating}</p>
@@ -119,9 +119,7 @@ const SelectedEvent = () => {
         <p className="eventOrganiser_ratingText">Rate this organiser</p>
         <p className="eventcard.row event_id">Sport: {singleEvent.category}</p>
 
-        <p className="eventcard.row event_id">
-          Event Date: 📅 {singleEvent.date}
-        </p>
+        <p className="eventcard.row event_id">Date: 📅 {singleEvent.date}</p>
         <p className="eventcard.row event_id">Time: ⏰ {singleEvent.time}</p>
         <p className="eventcard.row event_id">
           {" "}
@@ -140,12 +138,14 @@ const SelectedEvent = () => {
         <p className="eventcard.row event_id">
           Skill Level: ⭐ {singleEvent.skills_level}
         </p>
-
-        <button onClick={handleBookEvent}>Book Event</button>
+        <p className="eventcard.row event_id">
+          Players Needed: 🤼 {singleEvent.needed_players}
+        </p>
+        <button onClick={handleBookEvent}>Book Game</button>
       </div>
       <div className="selectEvent comments">
         <h3 className="selectedEvents comments title">
-          Comments about this event :
+          Comments about this game :
         </h3>
 
         {comments.length > 0 ? (
@@ -158,7 +158,7 @@ const SelectedEvent = () => {
       </div>
       <div className="selectedEvent_addComment">
         <h3 className="selectedEvents.comments.title">
-          Post a new comments about this event :
+          Post a new comment about this game :
         </h3>
         <form onSubmit={handleSubmit} className="selectedEvent_addComment">
           <textarea

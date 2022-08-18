@@ -33,10 +33,10 @@ const Account = () => {
           <>
             <h3>User Account: {currentUser && userName}</h3>
             <Link to={`/user/Booked-events/${currentUser.uid}`}>
-              <button className="bookedevents">Booked Events</button>
+              <button className="bookedevents">Games Booked</button>
             </Link>
             <Link to={`/user/Created-events/${currentUser.uid}`}>
-              <button className="bookedevents">My Events</button>
+              <button className="bookedevents">Gmes Organised</button>
             </Link>
             <UpdateProfile />
             <LogOut />

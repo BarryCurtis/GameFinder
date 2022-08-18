@@ -19,7 +19,12 @@ const Home = () => {
   }
   return (
     <div className="home">
-      <h3 className="eventslist.subtitle">Find your game below:</h3>
+      <img
+        className="sportpic"
+        src="http://www.colleges-fenway.org/wp-content/uploads/2020/04/bigstock-Four-Sports-a-lot-of-balls-an-50626115-480x240.jpg"
+        alt="sportimage"
+      ></img>
+      <h3 className="eventslist.subtitle">Find Game's Below</h3>
       <div className="map-wrapper">
         <Map events={events} />
       </div>
@@ -29,7 +34,7 @@ const Home = () => {
           <button>Find A Game</button>
         </Link>
         <Link to="/create">
-          <button>Create Event</button>
+          <button>Create A Game</button>
         </Link>
       </div>
     </div>

@@ -33,12 +33,12 @@ const LogIn = () => {
   }
   return (
     <div className="login-form-container">
-      <h3 className="accountheader">Please Login or Sign Up</h3>
       <img
         className="sportpic"
-        src="https://cdn.images.express.co.uk/img/dynamic/4/750x445/1280284.jpg"
+        src="http://www.colleges-fenway.org/wp-content/uploads/2020/04/bigstock-Four-Sports-a-lot-of-balls-an-50626115-480x240.jpg"
         alt="sportimage"
       ></img>
+      <h4 className="accountheader">Please Login or Sign Up:</h4>
       <form className="login-form" onSubmit={handleSubmit}>
         {error ? <p style={{ color: "red" }}>{error}</p> : null}
         <label htmlFor="email">
@@ -66,6 +66,7 @@ const LogIn = () => {
           <button className="login-button" type="submit" disabled={loading}>
             Log In
           </button>
+
           <Link to="/signup" className="signupbar">
             Sign Up
           </Link>

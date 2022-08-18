@@ -198,6 +198,11 @@ body {
   margin-bottom: 0px;
 }
 
+.home h3{
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
 /* booked event */
 
 .paypalimage {
@@ -234,6 +239,11 @@ body {
   text-align: center;
 }
 
+.create h2 {
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
 .create label {
   text-align: left;
   display: block;
@@ -255,6 +265,16 @@ create h2 {
   box-sizing: border-box;
   display: block;
 }
+
+.create select{
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
 
 .filters-order,
 .filters-category,
@@ -297,11 +317,11 @@ create h2 {
   box-shadow: 0 2px 10px #0a2145;
 }
 
-.account {
+/* .account {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
-}
+} */
 
 .login-form-container h3 {
   padding-top: 0;
@@ -336,7 +356,8 @@ create h2 {
   border-radius: 50%;
   border: 2px solid #0a2145;
   box-shadow: 0 2px 10px #0a2145;
-  margin-top: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 /* login form */

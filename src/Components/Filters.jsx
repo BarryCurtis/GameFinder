@@ -33,7 +33,7 @@ const Filters = ({ setEvents }) => {
 
   return (
     <section className="filters">
-      <h4 className="sort_by.label">Filter Events</h4>
+      <h4 className="sort_by.label">Filter Games</h4>
       <div className="filters-categories">
         <select
           name="category"

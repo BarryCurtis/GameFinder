@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../security/authContext";
 import { postEvent } from "../Utility/api";
+import { useNavigate } from "react-router-dom";
 
 const Create = () => {
   const [eventName, setEventName] = useState();
@@ -16,11 +17,15 @@ const Create = () => {
   const [players, setPlayers] = useState();
   const [cost, setCost] = useState();
   const [sentEvent, setSentEvent] = useState(false);
+  const navigate = useNavigate();
 
   const { currentUser } = useAuth();
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!currentUser) {
+      navigate("/account");
+    }
     const eventToSend = {
       firebase_id: `${currentUser.uid}`,
       category: category,
@@ -41,9 +46,14 @@ const Create = () => {
 
   return (
     <div className="create">
-      <h2>Create Event</h2>
+      <img
+        className="sportpic"
+        src="http://www.colleges-fenway.org/wp-content/uploads/2020/04/bigstock-Four-Sports-a-lot-of-balls-an-50626115-480x240.jpg"
+        alt="sportimage"
+      ></img>
+      <h2>Create Game</h2>
       <form onSubmit={handleSubmit}>
-        <label> Name of Event:</label>
+        <label> Name of Game:</label>
         <input
           onChange={(e) => {
             setEventName(e.target.value);
@@ -188,7 +198,7 @@ const Create = () => {
         </select>
         {sentEvent === true ? <h4>Event Posted, See Events Page</h4> : null}
 
-        <button>Add Event</button>
+        <button>Add Game</button>
       </form>
     </div>
   );

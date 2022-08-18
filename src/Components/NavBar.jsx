@@ -20,23 +20,25 @@ export default function Navbar() {
       <Link to="/" className="homelink">
         Home
       </Link>
-      <ul>
-        <li className="active">
-          <CustomLink to="/events" className="eventslink">
-            Events
-          </CustomLink>
-        </li>
-        <li className="active">
-          <CustomLink to="/account" className="accountlink">
-            Account
-          </CustomLink>
-        </li>
-      </ul>
-      {currentUser ? (
-        <img className="userimage" src={userIcon} alt="userimage"></img>
-      ) : (
-        <img className="guestuserimage" src={guestUserIcon} alt="guest"></img>
-      )}
+      <div className="display">
+        <ul>
+          <li className="active">
+            <CustomLink to="/events" className="eventslink">
+              Games
+            </CustomLink>
+          </li>
+          <li className="active">
+            <CustomLink to="/account" className="accountlink">
+              Account
+            </CustomLink>
+          </li>
+        </ul>
+        {currentUser ? (
+          <img className="userimage" src={userIcon} alt="userimage"></img>
+        ) : (
+          <img className="guestuserimage" src={guestUserIcon} alt="guest"></img>
+        )}
+      </div>
     </nav>
   );
 }

@@ -39,8 +39,13 @@ const SignUp = () => {
   return (
     <div className="signup-form-container">
       <form className="signup-form" onSubmit={handleSubmit}>
-        <p style={{ color: "red" }}>{error}</p>
-        <p>Please sign up to proceed:</p>
+        {error ? <p style={{ color: "red" }}>{error}</p> : null}
+        <img
+          className="sportpic"
+          src="http://www.colleges-fenway.org/wp-content/uploads/2020/04/bigstock-Four-Sports-a-lot-of-balls-an-50626115-480x240.jpg"
+          alt="sportimage"
+        ></img>
+        <h4>Please sign up to proceed:</h4>
         <label htmlFor="email">
           <b>Email</b>
         </label>

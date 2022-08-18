@@ -3,28 +3,34 @@ import { getUserBookedEvents } from "../Utility/api";
 import { useAuth } from "../security/authContext";
 import BookedEventCard from "./BookedEventCard";
 import Loading from "./Loading";
+
 const UserBookedEvents = () => {
   const [userevents, setUserEvents] = useState([]);
   const { currentUser } = useAuth();
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     if (currentUser) {
-      setIsLoading(true)
-      getUserBookedEvents(currentUser.uid).then((events) => {
-        setUserEvents(events);
-      }).finally(()=>{
-        setIsLoading(false)
-      })
+      setIsLoading(true);
+      getUserBookedEvents(currentUser.uid)
+        .then((event) => {
+          console.log(event);
+          setUserEvents(event);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   }, [currentUser.uid]);
-  if(isLoading){
-    return <Loading />
+  if (isLoading) {
+    return <Loading />;
   }
   return (
     <>
-      {userevents && userevents.map((event) => {
-        return <BookedEventCard event={event} />;
-      })}
+      {userevents &&
+        userevents.map((event) => {
+          return <BookedEventCard event={event} />;
+        })}
     </>
   );
 };
