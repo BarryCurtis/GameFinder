@@ -36,7 +36,7 @@ const Account = () => {
               <button className="bookedevents">Games Booked</button>
             </Link>
             <Link to={`/user/Created-events/${currentUser.uid}`}>
-              <button className="bookedevents">Gmes Organised</button>
+              <button className="bookedevents">Games Organised</button>
             </Link>
             <UpdateProfile />
             <LogOut />
